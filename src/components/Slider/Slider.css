@@ -1,0 +1,40 @@
+.slid{
+    height: 85vh;
+}
+.slid_1,.slid_2,.slid_3{
+    background-image: url("../images/img-1.webp");
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+}
+.slid_2{
+    background-image: url("../images/img-2.webp");
+}
+.slid_3{
+    background-image: url("../images/blog-03.webp");
+}
+.activebtn{
+    background-color: var(--nav-hover);
+    color: white;
+}
+.activebtn:hover{
+    background-color: white;
+    color: black;
+}
+.activelink{
+    color: var(--nav-hover);
+}
+.swiper-button-prev,.swiper-button-next{
+   background-color: var(--nav-hover);
+   width: 50px !important;
+   height: 50px !important;
+   border: 1px solid var(--nav-hover);
+   border-radius: 50%;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+.swiper-button-prev::after,.swiper-button-next::after{
+    font-size: 25px !important;
+    color: white;
+}

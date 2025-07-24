@@ -1,0 +1,35 @@
+#accordionFlushExample .accordion-item{
+    background-color: transparent !important;
+    color: white !important;
+    border-bottom: 1px solid white;
+    padding-bottom: 15px;
+}
+.accordion-item h2 button{
+    color: white ;
+    background-color: transparent;
+    font-size: 25px;
+    text-transform: capitalize;
+}
+.accordion-button:not(.collapsed){
+    background-color: transparent;
+    box-shadow: 0 0 0 0 transparent;
+}
+.accordion-item h2 button:focus{
+    color: var(--nav-hover);
+}
+.accord p{
+    color: var(--nav-hover);
+}
+.accord h4{
+    font-size: 45px;
+    margin-bottom: 25px;
+}
+.imgpart img{
+    height: 80%;
+}
+@media(max-width:426px){
+    .accordion-item h2 button{
+        font-size: 16px;
+        font-weight: 500;
+    } 
+}

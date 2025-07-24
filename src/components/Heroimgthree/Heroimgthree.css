@@ -1,0 +1,39 @@
+.Heroimg{
+    background-image: linear-gradient(to top,rgba(0,0,0,0.3),rgba(0,0,0,0.3))
+    ,url("../images/hotspot.webp");
+    background-position: center;
+    background-size: cover;
+    height: 45vh;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    justify-content: center;
+    align-items: center;
+}
+.Heroimg h3{
+    font-size: 60px;
+}
+.Heroimg p{
+    font-size: 25px;
+}
+.breadcrumb-item+.breadcrumb-item::before{
+    color: white;
+}
+@media (max-width:768px){
+    .Heroimg h3{
+        font-size: 30px;
+        line-height: 50px;
+    }
+    .Heroimg ol li{
+        font-size: 18px;
+    }    
+}
+@media (max-width:426px){
+    .Heroimg h3{
+        font-size: 20px;
+        line-height: 30px;
+    }
+    .Heroimg ol li{
+        font-size: 10px;
+    }    
+}

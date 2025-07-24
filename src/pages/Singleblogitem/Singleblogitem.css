@@ -1,0 +1,25 @@
+.singleblogimg{
+    border-radius: 20px ;
+}
+.imgmotion{
+    width: 90%;
+    height: 150px;
+    background-image: linear-gradient(to left, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+    url("../images/blog-03.webp");
+    background-attachment: fixed;
+    margin: 50px auto;
+    border-radius: 20px;
+}
+.imgmotion p{
+    font-size: 20px;
+}
+.line{
+    height: 1px;
+    background-color: white;
+    margin: 20px 0;
+}
+@media (max-width:426px){
+    .imgmotion p{
+        font-size: 15px;
+    }
+}

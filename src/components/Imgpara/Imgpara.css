@@ -1,0 +1,18 @@
+.Imgpara{
+    padding: 120px 40px;
+}
+.Imgpara img{
+    border-radius: 30px;
+}
+.headp{
+    color: var(--nav-hover);
+}
+.Imgpara h4{
+    font-size: 50px;
+}
+@media(max-width:426px){
+    .Imgpara h4{
+        font-size: 30px;
+    }
+    
+}
