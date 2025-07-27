@@ -10,25 +10,25 @@ export default function Collections() {
     {
       id:"1",
       name:"Home Decoration",
-      img:"images/shop-4-01.webp",
+      img:"/images/shop-4-01.webp",
       link:"/collections/homedecoration",
     },
     {
       id:"2",
       name:"Indoor Decoration",
-      img:"images/shop-8-01.webp",
+      img:"/images/shop-8-01.webp",
       link:"/collections/indecoration",
     },
     {
       id:"3",
       name:"Office Decoration",
-      img:"images/shop-12-01.webp",
+      img:"/images/shop-12-01.webp",
       link:"/collections/officedecoration",
     },
     {
       id:"4",
       name:"Outdoor Decoration",
-      img:"images/shop-5-04.webp",
+      img:"/images/shop-5-04.webp",
       link:"/collections/outdecoration",
     },
   ]
