@@ -11,7 +11,7 @@ export default function Blog() {
       id:1,
       headtext:"Elegant & Essential Dinning Hall Furniture & De...",
       paratext:"Tincidunt a pharetra tempor potenti pharetra donec. Turpis magna cubilia finibus aenean tempor ultrices ligula...",
-      src:"public/images/blog-01.webp",
+      src:"/images/blog-01.webp",
     },
     {
       id:2,

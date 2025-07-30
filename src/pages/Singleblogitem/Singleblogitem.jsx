@@ -14,8 +14,8 @@ export default function Singleblogitem() {
           main="News" page="Advantages Of Choosing Custom-Crafted Furniture Pieces"
           icon="'>'" link="/blog"/>
         <div className='.singleblog' style={{margin:"100px 20px"}}>
-          <div className="row m-0" >
-            <div className="col-lg-8 col-12 border-end">
+          <div className="row m-0 g-4" >
+            <div className="col-lg-8 col-12 border-end detailsparent">
               <div className='p-3 d-flex flex-column gap-3 text-capitalize'>
                 <img src="/images/blog-03.webp" className='w-100 singleblogimg' />
                 <p><span>Jul 08</span> {"-"} John Mathew </p>
@@ -90,6 +90,54 @@ export default function Singleblogitem() {
                 <div className="line container"></div>
               </div>
             </div>
+            
+            <div className="col-lg-4 col-12 p-3">
+              <div className='text-capitalize'>
+                <h4 className='my-5 fs-2'>recent posts</h4>
+
+                <div className='d-flex flex-column gap-3'>
+
+                  <div className='d-flex gap-3 align-items-center recentpost'>
+                    <div className='parentimg'>
+                      <img src="/images/blog-01.webp" />
+                    </div>
+                    <div className='d-flex flex-column gap-2'>
+                      <p className="m-0">
+                        <span>Jul 08</span>
+                      </p>
+                      <h3>Elegant & Essential Dinning Hall Furniture & De...</h3>
+                    </div>
+                  </div>
+
+                  <div className='d-flex gap-3 align-items-center recentpost'>
+                    <div className='parentimg'>
+                      <img src="/images/blog-02.webp"/>
+                    </div>
+                    <div className='d-flex flex-column gap-2'>
+                      <p className="m-0">
+                        <span>Jul 08</span>
+                      </p>
+                      <h3>Advantages Of Choosing Custom-Crafted Furniture...</h3>
+                    </div>
+                  </div>
+
+                  <div className='d-flex gap-3 align-items-center recentpost'>
+                    <div className='parentimg'>
+                      <img src="/images/blog-03.webp"/>
+                    </div>
+                    <div className='d-flex flex-column gap-2'>
+                      <p className="m-0">
+                        <span>Jul 08</span>
+                      </p>
+                      <h3>The Modest Living Space Furnishings Ideas...</h3>
+                    </div>
+                  </div>
+
+                  
+                </div>
+
+              </div>
+            </div>
           </div>
         </div>
         <Footer />
@@ -99,11 +147,16 @@ export default function Singleblogitem() {
 
 
 /***
-  Vitae tempus quam dui faucibus pellentesque nec nam aliquam.
-
- Purus faucibus ornare suspendisse sed nisi lacus sed viverra tellus.
-
- Condimentum id venenatis a condimentum vitae sapien pellent.
-
- Odio eu feugiat pretium est placerat nibh ipsum consequat nisl.
+  <div className='d-flex gap-3 align-items-center recentpost'>
+                    <div className='parentimg'>
+                      <img src="/images/blog-03.webp" className='w-100 h-100'/>
+                    </div>
+                    <div className='d-flex flex-column gap-2'>
+                      <p className="m-0">
+                        <span>Jul 08</span>
+                      </p>
+                      <h3>The Modest Living Space Furnishings Ideas</h3>
+                    </div>
+                  </div>
+                </div>
  */
