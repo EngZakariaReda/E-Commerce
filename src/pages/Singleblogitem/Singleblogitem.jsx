@@ -4,8 +4,14 @@ import Footer from '../../components/Footer/Footer'
 import Merque from '../../components/Merque/Merque'
 import Heroimgthree from '../../components/Heroimgthree/Heroimgthree'
 import { FaCheck } from "react-icons/fa";
+import { Link } from 'react-router'
+import { useRef } from 'react'
 
 export default function Singleblogitem() {
+
+  const imgposition = useRef();
+  console.log(imgposition);
+  
   return (
     <>
         <Merque />
@@ -91,7 +97,7 @@ export default function Singleblogitem() {
               </div>
             </div>
             
-            <div className="col-lg-4 col-12 p-3">
+            <div className="col-lg-4 col-12 p-4">
               <div className='text-capitalize'>
                 <h4 className='my-5 fs-2'>recent posts</h4>
 
@@ -136,27 +142,39 @@ export default function Singleblogitem() {
                   
                 </div>
 
+                <div className='my-5 d-flex flex-column gap-3'>
+                  <h4>categories</h4>
+                  <div className='d-flex flex-column gap-4  fs-4'>
+                    <p className="m-0 d-flex justify-content-between">
+                      <Link to={"/collections/homedecoration"}>home decoration</Link>
+                      <Link>+</Link>
+                    </p>
+                    <p className="m-0 d-flex justify-content-between">
+                      <Link to={"/collections/indecoration"}>indoor decoration</Link>
+                      <Link>+</Link>
+                    </p>
+                    <p className="m-0 d-flex justify-content-between">
+                      <Link to={"/collections/officedecoration"}>office decoration</Link>
+                      <Link>+</Link>
+                    </p>
+                    <p className="m-0 d-flex justify-content-between">
+                      <Link to={"/collections/outdecoration"}>outdoor decoration</Link>
+                      <Link>+</Link>
+                    </p>
+                  </div>
+                </div>
+
+                <div>
+                  <Link to={"/collections/homedecoration"}>
+                      <img src="/images/MFC.webp" className='w-100' ref={imgposition} />
+                  </Link>
+                </div>
               </div>
-            </div>
+            </div>  
+
           </div>
         </div>
         <Footer />
     </>
   )
 }
-
-
-/***
-  <div className='d-flex gap-3 align-items-center recentpost'>
-                    <div className='parentimg'>
-                      <img src="/images/blog-03.webp" className='w-100 h-100'/>
-                    </div>
-                    <div className='d-flex flex-column gap-2'>
-                      <p className="m-0">
-                        <span>Jul 08</span>
-                      </p>
-                      <h3>The Modest Living Space Furnishings Ideas</h3>
-                    </div>
-                  </div>
-                </div>
- */

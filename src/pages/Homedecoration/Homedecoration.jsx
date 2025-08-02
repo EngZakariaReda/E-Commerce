@@ -10,7 +10,7 @@ export default function Homedecoration() {
     <>
         <Merque />
         <Navbar />
-        <Heroimgthree text="Home Decoration" main="all collections" page="products" icon="'>'" link="/collections" />
+        <Heroimgthree text="Home Decoration" main="all collections" page="home decoration" icon="'>'" link="/collections" />
         <Footer />
     </>
   )

@@ -36,7 +36,7 @@
     }
     .recentpost{
         flex-direction: column !important;
-        /* align-items: start !important; */
+        align-items: start !important;
     }
     .recentpost .parentimg{
         padding: 0;
