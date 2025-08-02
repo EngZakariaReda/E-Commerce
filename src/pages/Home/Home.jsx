@@ -57,11 +57,11 @@ export default function Home() {
       </div>
 
       <div className="blogpart d-flex flex-column gap-3">
-        <p>ACCESS THE LATEST STORIES</p>
+        <p className="para">ACCESS THE LATEST STORIES</p>
         <h3>Explore Our Blog</h3>
 
-        <div className="row m-0">
-          <div className="col-lg-6">
+        <div className="row m-0 g-4">
+          <div className="col-lg-6 col-12">
             <div className='d-flex flex-column gap-3'>
                 <div className="homeblogimg">
                     <img src="/images/blog-01.webp" className="w-100" />
@@ -71,48 +71,63 @@ export default function Home() {
                       <span>Jul 08</span>
                     </p>
                     <h3>Elegant & Essential Dinning Hall Furniture & De...</h3>
-                    <p className="text-secondary">Tincidunt a pharetra tempor potenti pharetra donec. 
-                      Turpis magna cubilia finibus aenean tempor ultrices ligula...
+                    <p className="text-secondary">
+                      Tincidunt a pharetra tempor potenti pharetra donec. 
+                      Turpis magna cubilia finibus aenean tempor ultrices ligula..
                     </p>
                 </div>
             </div>
           </div>
-          <div className="col-lg-6">
 
-            <div className='d-flex gap-3 align-items-center recentpost'>
-                <div className='parentimg'>
-                  <img src="/images/blog-01.webp" />
+          <div className="col-lg-6 col-12 d-flex flex-column gap-4">
+            <div className='d-flex gap-3 align-items-center smallblog'>
+                <div className='smallimg h-100'>
+                  <img src="/images/blog-02.webp" className="h-100" />
                 </div>
-                <div className='d-flex flex-column gap-2'>
+                
+                {/* <div className='d-flex flex-column gap-2 h-100 justify-content-between smalltext'>
                   <p className="m-0">
                     <span>Jul 08</span>
                   </p>
-                  <h3>Elegant & Essential Dinning Hall Furniture & De...</h3>
-                </div>
-            </div>
-            <div className='d-flex gap-3 align-items-center recentpost'>
-                <div className='parentimg'>
-                  <img src="/images/blog-01.webp" />
-                </div>
-                <div className='d-flex flex-column gap-2'>
-                  <p className="m-0">
-                    <span>Jul 08</span>
+                  <h3>Advantages Of Choosing Custom-Crafted Furniture...</h3>
+                  <p className="m-0 text-secondary">
+                    Habitasse nostra potenti potenti diam integer; odio mauris. 
+                    Tempus dui urna felis mauris molestie donec...
                   </p>
-                  <h3>Elegant & Essential Dinning Hall Furniture & De...</h3>
-                </div>
-            </div>
-            <div className='d-flex gap-3 align-items-center recentpost'>
-                <div className='parentimg'>
-                  <img src="/images/blog-01.webp" />
-                </div>
-                <div className='d-flex flex-column gap-2'>
-                  <p className="m-0">
-                    <span>Jul 08</span>
-                  </p>
-                  <h3>Elegant & Essential Dinning Hall Furniture & De...</h3>
-                </div>
+                </div> */}
             </div>
 
+            {/* <div className='d-flex gap-3 align-items-center smallblog'>
+                <div className='smallimg h-100'>
+                  <img src="/images/blog-03.webp" className="h-100" />
+                </div>
+                <div className='d-flex flex-column gap-2 h-100 justify-content-between smalltext'>
+                  <p className="m-0">
+                    <span>Jul 08</span>
+                  </p>
+                  <h3>The Modest Living Space Furnishings Ideas</h3>
+                  <p className="m-0 text-secondary">
+                    Porttitor potenti condimentum pulvinar etiam imperdiet inceptos. 
+                    Cras consectetur risus suscipit venenatis natoque curabitur ligula. 
+                  </p>
+                </div>
+            </div>
+            <div className='d-flex gap-3 align-items-center smallblog'>
+                <div className='smallimg h-100'>
+                  <img src="/images/blog-04_1f730a28-ccd5-4d96-a834-b3ee4d07e036.webp" className="h-100" />
+                </div>
+                <div className='d-flex flex-column gap-2 h-100 justify-content-between smalltext'>
+                  <p className="m-0">
+                    <span>Jul 08</span>
+                  </p>
+                  <h3>Elevate Your Home With Stylish Furniture’s And ...</h3>
+                  <p className="m-0 text-secondary">
+                    Amet nunc condimentum praesent fames blandit viverra. 
+                    Pretium accumsan commodo ridiculus auctor vulputate 
+                    dignissim rhoncus....
+                  </p>
+                </div>
+            </div> */}
 
           </div>
 
@@ -122,3 +137,5 @@ export default function Home() {
     </>
   )
 }
+/**working on ui of home page
+ */

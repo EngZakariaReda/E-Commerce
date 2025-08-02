@@ -4,7 +4,7 @@
 .blogpart{
     padding: 100px 50px;
 }
-.blogpart p{
+.blogpart .para,.smalltext p span{
     color: var(--nav-hover);
 }
 .blogpart h3{
@@ -14,7 +14,30 @@
     overflow: hidden;
     border-radius: 20px;
 }
+.homeblogimg img{
+    transition: 0.5s ease;
+    object-fit: fill;
+}
 .homeblogimg img:hover{
     transform: scale(1.2);
-    transition: 0.5s linear;
 }
+
+.smallblog{
+    height: 170px;
+}
+.smallimg{
+    /* overflow: hidden; */
+    width: 100%;
+    border-radius: 10px;
+}
+.smallimg img{
+    width: 100%;
+    transition: 0.5s ease;
+    object-fit: fill;
+}
+/* .smallimg img:hover{
+    transform: scale(1.2);
+}
+.smalltext h3{
+    font-size: 30px;
+} */
