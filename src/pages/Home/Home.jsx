@@ -55,6 +55,69 @@ export default function Home() {
               })
             }
       </div>
+
+      <div className="blogpart d-flex flex-column gap-3">
+        <p>ACCESS THE LATEST STORIES</p>
+        <h3>Explore Our Blog</h3>
+
+        <div className="row m-0">
+          <div className="col-lg-6">
+            <div className='d-flex flex-column gap-3'>
+                <div className="homeblogimg">
+                    <img src="/images/blog-01.webp" className="w-100" />
+                </div>
+                <div className='d-flex flex-column gap-2'>
+                    <p className="m-0">
+                      <span>Jul 08</span>
+                    </p>
+                    <h3>Elegant & Essential Dinning Hall Furniture & De...</h3>
+                    <p className="text-secondary">Tincidunt a pharetra tempor potenti pharetra donec. 
+                      Turpis magna cubilia finibus aenean tempor ultrices ligula...
+                    </p>
+                </div>
+            </div>
+          </div>
+          <div className="col-lg-6">
+
+            <div className='d-flex gap-3 align-items-center recentpost'>
+                <div className='parentimg'>
+                  <img src="/images/blog-01.webp" />
+                </div>
+                <div className='d-flex flex-column gap-2'>
+                  <p className="m-0">
+                    <span>Jul 08</span>
+                  </p>
+                  <h3>Elegant & Essential Dinning Hall Furniture & De...</h3>
+                </div>
+            </div>
+            <div className='d-flex gap-3 align-items-center recentpost'>
+                <div className='parentimg'>
+                  <img src="/images/blog-01.webp" />
+                </div>
+                <div className='d-flex flex-column gap-2'>
+                  <p className="m-0">
+                    <span>Jul 08</span>
+                  </p>
+                  <h3>Elegant & Essential Dinning Hall Furniture & De...</h3>
+                </div>
+            </div>
+            <div className='d-flex gap-3 align-items-center recentpost'>
+                <div className='parentimg'>
+                  <img src="/images/blog-01.webp" />
+                </div>
+                <div className='d-flex flex-column gap-2'>
+                  <p className="m-0">
+                    <span>Jul 08</span>
+                  </p>
+                  <h3>Elegant & Essential Dinning Hall Furniture & De...</h3>
+                </div>
+            </div>
+
+
+          </div>
+
+        </div>
+      </div>
       <Footer />
     </>
   )
