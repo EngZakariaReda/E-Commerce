@@ -2,7 +2,7 @@
     color: var(--nav-hover);
 }
 .blogpart{
-    padding: 100px 50px;
+    padding: 70px 50px;
 }
 .blogpart .para,.smalltext p span{
     color: var(--nav-hover);
@@ -26,18 +26,38 @@
     height: 170px;
 }
 .smallimg{
-    /* overflow: hidden; */
-    width: 100%;
+    width: 40%;
     border-radius: 10px;
+    overflow: hidden;
 }
 .smallimg img{
-    width: 100%;
     transition: 0.5s ease;
     object-fit: fill;
 }
-/* .smallimg img:hover{
+.smallimg img:hover{
     transform: scale(1.2);
 }
+.smalltext{
+    width: 60%;
+}
 .smalltext h3{
-    font-size: 30px;
-} */
+    font-size: 27px;
+}
+@media (max-width:426px){
+    .blogpart{
+      padding: 70px 10px;
+    }
+    .blogpart h3{
+      font-size: 20px;
+    }
+    .smallblog{
+      flex-direction: column !important;
+      height: 350px;
+    } 
+    .smallimg{
+       width: 100%;
+    }
+    .smalltext{
+        width: 100%;
+    }
+}

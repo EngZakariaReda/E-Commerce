@@ -5,7 +5,7 @@ export default function Iconitem(props) {
   return (
     <>
         <div className={`col-lg-3 col-md-6 col-12 `}>
-            <div className={`d-flex gap-3 align-items-center`}>
+            <div className={`d-flex gap-3 justify-content-center align-items-center`}>
                 <div className={styles.relativeicon}>
                     <MdAttachEmail className={styles.contacticon} />
                     <div className={styles.icon}></div>

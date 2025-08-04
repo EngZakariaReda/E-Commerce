@@ -8,6 +8,7 @@ import Iconitem from "../../components/Iconitem/Iconitem";
 import Havorcard from "../../components/Havorcard/Havorcard";
 import Accordiation from "../../components/Accordiation/Accordiation";
 import Textimgslider from "../../components/Textimgslider/Textimgslider";
+import { Link } from "react-router";
 
 export default function Home() {
   const itemscontact=[
@@ -49,28 +50,37 @@ export default function Home() {
         <Textimgslider />
       </div>
 
-      <div className={`row w-100 g-4 my-5`}>{
+      <div className={`container my-5`}>
+            <div className="row m-0">
+              {
               itemscontact.map((el)=>{
                 return <Iconitem key={el.id} ele={el} />
               })
-            }
+              }
+            </div>
       </div>
 
       <div className="blogpart d-flex flex-column gap-3">
         <p className="para">ACCESS THE LATEST STORIES</p>
         <h3>Explore Our Blog</h3>
 
-        <div className="row m-0 g-4">
+        <div className="row m-0 g-5">
           <div className="col-lg-6 col-12">
             <div className='d-flex flex-column gap-3'>
                 <div className="homeblogimg">
-                    <img src="/images/blog-01.webp" className="w-100" />
+                    <Link to={"/blog/singleblogitem"}>
+                      <img src="/images/blog-01.webp" className="w-100" />
+                    </Link>
                 </div>
                 <div className='d-flex flex-column gap-2'>
                     <p className="m-0">
                       <span>Jul 08</span>
                     </p>
-                    <h3>Elegant & Essential Dinning Hall Furniture & De...</h3>
+                    <h3>
+                      <Link to={"/blog/singleblogitem"}>
+                         Elegant & Essential Dinning Hall Furniture & De...
+                      </Link>
+                    </h3>
                     <p className="text-secondary">
                       Tincidunt a pharetra tempor potenti pharetra donec. 
                       Turpis magna cubilia finibus aenean tempor ultrices ligula..
@@ -81,53 +91,72 @@ export default function Home() {
 
           <div className="col-lg-6 col-12 d-flex flex-column gap-4">
             <div className='d-flex gap-3 align-items-center smallblog'>
-                <div className='smallimg h-100'>
-                  <img src="/images/blog-02.webp" className="h-100" />
+                <div className='h-100 smallimg'>
+                  <Link to={"/blog/singleblogitem"}>
+                    <img src="/images/blog-02.webp" className="h-100 w-100" />
+                  </Link>
                 </div>
                 
-                {/* <div className='d-flex flex-column gap-2 h-100 justify-content-between smalltext'>
+                <div className='d-flex flex-column h-100 justify-content-between smalltext'>
                   <p className="m-0">
                     <span>Jul 08</span>
                   </p>
-                  <h3>Advantages Of Choosing Custom-Crafted Furniture...</h3>
+                  <h3>
+                    <Link to={"/blog/singleblogitem"}>
+                      Advantages Of Choosing Custom-Crafted Furniture...
+                    </Link>
+                  </h3>
                   <p className="m-0 text-secondary">
                     Habitasse nostra potenti potenti diam integer; odio mauris. 
                     Tempus dui urna felis mauris molestie donec...
                   </p>
-                </div> */}
+                </div>
             </div>
 
-            {/* <div className='d-flex gap-3 align-items-center smallblog'>
-                <div className='smallimg h-100'>
-                  <img src="/images/blog-03.webp" className="h-100" />
+            <div className='d-flex gap-3 align-items-center smallblog'>
+                <div className='h-100 smallimg'>
+                  <Link to={"/blog/singleblogitem"}>
+                    <img src="/images/blog-03.webp" className="h-100 w-100" />
+                  </Link>
                 </div>
-                <div className='d-flex flex-column gap-2 h-100 justify-content-between smalltext'>
+                <div className='d-flex flex-column h-100 justify-content-between smalltext'>
                   <p className="m-0">
                     <span>Jul 08</span>
                   </p>
-                  <h3>The Modest Living Space Furnishings Ideas</h3>
+                  <h3>
+                    <Link to={"/blog/singleblogitem"}>
+                      The Modest Living Space Furnishings Ideas
+                    </Link>
+                  </h3>
                   <p className="m-0 text-secondary">
                     Porttitor potenti condimentum pulvinar etiam imperdiet inceptos. 
                     Cras consectetur risus suscipit venenatis natoque curabitur ligula. 
                   </p>
                 </div>
             </div>
+
             <div className='d-flex gap-3 align-items-center smallblog'>
-                <div className='smallimg h-100'>
-                  <img src="/images/blog-04_1f730a28-ccd5-4d96-a834-b3ee4d07e036.webp" className="h-100" />
+                <div className='h-100 smallimg'>
+                  <Link to={"/blog/singleblogitem"}>
+                    <img src="/images/blog-04_1f730a28-ccd5-4d96-a834-b3ee4d07e036.webp" className="h-100 w-100" />
+                  </Link>
                 </div>
-                <div className='d-flex flex-column gap-2 h-100 justify-content-between smalltext'>
+                <div className='d-flex flex-column h-100 justify-content-between smalltext'>
                   <p className="m-0">
                     <span>Jul 08</span>
                   </p>
-                  <h3>Elevate Your Home With Stylish Furniture’s And ...</h3>
+                  <h3>
+                    <Link to={"/blog/singleblogitem"}>
+                      Elevate Your Home With Stylish Furniture’s And ...
+                    </Link>
+                  </h3>
                   <p className="m-0 text-secondary">
                     Amet nunc condimentum praesent fames blandit viverra. 
                     Pretium accumsan commodo ridiculus auctor vulputate 
                     dignissim rhoncus....
                   </p>
                 </div>
-            </div> */}
+            </div>
 
           </div>
 
