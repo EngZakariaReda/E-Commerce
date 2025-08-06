@@ -3,6 +3,7 @@ import Footer from "../../components/Footer/Footer";
 import Heroimgthree from "../../components/Heroimgthree/Heroimgthree";
 import Merque from "../../components/Merque/Merque";
 import Navbar from "../../components/Navbar/Navbar";
+import Singleshopitem from "../../components/Singleshopitem/Singleshopitem";
 
 export default function Shop() {
   return (
@@ -11,9 +12,10 @@ export default function Shop() {
       <Navbar />
       <Heroimgthree text="products" main="all collections" page="products" icon="'>'" link="/collections"/>
       <div>
-        <Link to={"/shop/singleproduct"}>
+        {/* <Link to={"/shop/singleproduct"}>
             singleproduct
-        </Link>
+        </Link> */}
+        <Singleshopitem />
       </div>
       <Footer />
     </>
