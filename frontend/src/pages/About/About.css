@@ -1,0 +1,26 @@
+.bestteam{
+    background-color: #2b2b2b;
+    padding: 120px 0px;
+}
+.bestteam .headp,.upslid p{
+    color: var(--nav-hover);
+}
+.bestteam h4{
+    font-size: 45px;
+}
+.counter{
+    background-image:linear-gradient(to top,rgba(0,0,0,0.7),rgba(0,0,0,.03)), 
+    url("../images/Rectangle_38880.webp");
+    background-size: cover;
+}
+.counteritem{
+    height: 150px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    justify-content: center;
+    align-items: center;
+}
+.upslid h4{
+    font-size: 40px;
+}

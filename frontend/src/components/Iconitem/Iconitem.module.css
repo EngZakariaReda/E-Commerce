@@ -1,0 +1,22 @@
+.icon{
+    width: 100px;
+    height: 100px;
+    background-color:rgba(224, 224, 224, 0.12) ;
+    border-radius: 50%;
+    position: absolute;
+    top: 0; 
+    left: -25%;
+    transition: 0.5s;
+}
+.relativeicon{
+    position: relative;
+}
+.contacticon{
+    width: 100px;
+    height: 100px;
+    color: var(--nav-hover);
+}
+.icon:hover{
+    width: 130px;
+    height: 110px;
+}

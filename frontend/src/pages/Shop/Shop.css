@@ -1,0 +1,5 @@
+input[type="checkbox"] {
+  accent-color: var(--nav-hover); 
+  border: none;
+  outline: none;
+}

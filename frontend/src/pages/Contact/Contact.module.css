@@ -1,0 +1,78 @@
+.formparent{
+    padding: 120px 0px;
+}
+.formparent span{
+    color: var(--nav-hover);
+}
+.formparent h4{
+    font-size: 50px ;
+    width: 40%;
+}
+.formparent p{
+    width: 40%;
+}
+.formparent .form{
+    width: 60%;
+    background-color: rgba(224, 224, 224, 0.12);
+    padding: 60px;
+    border-radius: 20px;
+}
+.formparent input{
+    border: 1px solid #5e5e5e;
+    border-radius: 50px;
+    color: white;
+    /* margin: 20px 60px; */
+    outline: 0;
+    height: 60px;
+    background-color: transparent;
+}
+.formparent input:focus{
+    border: 1px solid var(--nav-hover);
+}
+.textarea{
+    height: 150px !important;
+    border-radius: 25px !important;
+    outline: 0;
+    color: white;
+}
+.textarea:focus{
+    border: 1px solid var(--nav-hover) !important;
+}
+.subbtn{
+    background-color: var(--nav-hover) !important;
+    color: white;
+    width: 20%;
+    outline: 0;
+    border: 0;
+    border-radius: 50px;
+}
+.subbtn:hover{
+    background-color: white !important;
+    color: black;
+}
+.contactitem{
+    padding: 100px 50px ;
+}
+@media(max-width:768px){
+    .formparent .form{
+        width: 90%;
+    }
+    .subbtn{
+        width: 40%;
+    }
+    .formparent h4{
+        font-size: 50px ;
+        width: 80%;
+    }
+    .formparent p{
+        width: 80%;
+    }
+}
+@media(max-width:426px){
+    .formparent .form{
+        width: 90%;
+    }
+    .subbtn{
+        width: 60%;
+    }
+}
