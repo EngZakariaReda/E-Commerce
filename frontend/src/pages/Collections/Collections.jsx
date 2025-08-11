@@ -1,8 +1,5 @@
 import styles from "./Collections.module.css"
-import Footer from "../../components/Footer/Footer";
 import Heroimg from "../../components/Heroimg/Heroimg";
-import Merque from "../../components/Merque/Merque";
-import Navbar from "../../components/Navbar/Navbar";
 import Collectionproduct from "../../components/Collectionproduct/Collectionproduct";
 
 export default function Collections() {
@@ -34,8 +31,6 @@ export default function Collections() {
   ]
   return (
     <>
-      <Merque />
-      <Navbar />
       <Heroimg text={"all collections"} page='collections' icon="'>'"/>
       <div className={`${styles.products} w-100`}>
         <div className="row g-3">{
@@ -44,7 +39,6 @@ export default function Collections() {
             })
         }</div>
       </div>
-      <Footer />
     </>
   )
 }

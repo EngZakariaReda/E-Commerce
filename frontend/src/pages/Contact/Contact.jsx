@@ -1,7 +1,4 @@
 import { MdAttachEmail } from "react-icons/md";
-import Navbar from '../../components/Navbar/Navbar'
-import Merque from '../../components/Merque/Merque'
-import Footer from '../../components/Footer/Footer'
 import Heroimg from '../../components/Heroimg/Heroimg'
 import { Link } from 'react-router'
 import styles from "./Contact.module.css"
@@ -10,11 +7,6 @@ import Sidebar from "../../components/Sidebar/Sidebar";
 import { useState } from "react";
 
 export default function Contact() {
-
-  const [open , setopen] = useState(false)
-  const click=()=>{
-    setopen(!open)
-  }
 
   const itemscontact=[
     {
@@ -40,8 +32,6 @@ export default function Contact() {
   ]
   return (
     <>
-      <Merque />
-      <Navbar click={click} />
       <Heroimg text="contact" page="contact" icon="'>'" />
 
       <div className={`${styles.formparent} text-center`}>
@@ -74,9 +64,6 @@ export default function Contact() {
           return <Iconitem key={el.id} ele={el} />
         })
       }</div>
-
-      <Sidebar open={open} click={click} />
-      <Footer />
     </>
   )
 }

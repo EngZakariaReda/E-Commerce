@@ -14,7 +14,7 @@ export default function Sidebar({open,click}) {
                 <li>contact</li>
             </ul>
             <IoReorderThreeOutline style={{cursor:"pointer"}} className='fs-1' 
-                onClick={click}
+                onClick={()=> click()}
             />
         </div>
     </>

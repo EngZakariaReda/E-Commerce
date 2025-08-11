@@ -1,41 +1,48 @@
 import './Singleblogitem.css'
-import Navbar from '../../components/Navbar/Navbar'
-import Footer from '../../components/Footer/Footer'
-import Merque from '../../components/Merque/Merque'
 import Heroimgthree from '../../components/Heroimgthree/Heroimgthree'
 import Categorieslinks from '../../components/Categorieslinks/Categorieslinks'
 import { FaCheck } from "react-icons/fa";
-import { Link } from 'react-router'
-import { useRef } from 'react'
+import { Link, useParams } from 'react-router'
+import { useEffect, useState} from 'react'
+import axios from 'axios';
 
 export default function Singleblogitem() {
-  const refitem = useRef(null)
-  // const scroll = ()=>{
-    
-  //   if ( window.scrollY > 1300 && window.scrollY < 1500){
-  //     console.log("dd");
-  //     refitem.current.style.position = 'fixed'
-  //     refitem.current.style.top = "20vh"
-  //   }else{
-  //     refitem.current.style.position = "static"
-  //     // refitem.current.style.top = "10vh"
-  //   }
-  // }
-  // window.onscroll = scroll 
+  const [blogproduct , setblogproduct] = useState({})
+  const [sorce , setsorce] = useState("#")
+
+  const {blogid} = useParams();
+
+  useEffect(()=>{
+    const getsingleproducts = async ()=>{
+       try {
+          const res = await axios.get(`http://localhost:1337/api/blogs/${blogid}` 
+            ,{
+            params:{
+              populate:"*"
+            }
+          })
+          setblogproduct(res.data.data)
+          setsorce(`http://localhost:1337${res.data.data.blog_images.url}`)
+
+       }catch (error) {
+          console.log(error)
+       }
+    }
+    getsingleproducts();
+  },[])
   return (
     <>
-        <Merque />
-        <Navbar />
-        <Heroimgthree text="Advantages Of Choosing Custom-Crafted Furniture Pieces" 
-          main="News" page="Advantages Of Choosing Custom-Crafted Furniture Pieces"
+        <Heroimgthree text={blogproduct.blog_name} 
+          main="News" page={blogproduct.blog_name}
           icon="'>'" link="/blog"/>
         <div className='.singleblog' style={{margin:"100px 20px"}}>
           <div className="row m-0 g-4" >
             <div className="col-lg-8 col-12 border-end detailsparent">
               <div className='p-3 d-flex flex-column gap-3 text-capitalize'>
-                <img src="/images/blog-03.webp" className='w-100 singleblogimg' />
+                <img src={sorce}
+                 className='w-100 singleblogimg'loading='lazy' />
                 <p><span>Jul 08</span> {"-"} John Mathew </p>
-                <h3>Advantages Of Choosing Custom-Crafted Furniture Pieces</h3>
+                <h3>{blogproduct.blog_name}</h3>
                 <p className="fs-6 text-secondary">Suspendisse viverra commodo semper. Donec facilisis odio vitae diam lacinia,
                    vel venenatis nibh mattis. Vestibulum odio dolor, gravida vel tincidunt vel, laoreet nec erat. 
                    Aliquam erat volutpat. Donec tincidunt magna dui, sit amet faucibus tortor dignissim ut. Nulla 
@@ -153,7 +160,7 @@ export default function Singleblogitem() {
                 </div>
 
                 <Categorieslinks />
-                <div ref={refitem}>
+                <div>
                   <Link to={"/collections/homedecoration"} className='w-100'>
                       <img src="/images/MFC.webp" className='w-100' />
                   </Link>
@@ -163,7 +170,6 @@ export default function Singleblogitem() {
 
           </div>
         </div>
-        <Footer />
     </>
   )
 }

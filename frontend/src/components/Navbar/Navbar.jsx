@@ -92,8 +92,8 @@ export default function Navbar({click}) {
           </div>
 
           <div className={`d-flex gap-4 align-items-center fs-4`}>
-              <button className='bg-transparent border-0 text-white fs-6'>
-                <IoReorderThreeOutline className="query" onClick={click} />
+              <button className='bg-transparent border-0 text-white fs-4'>
+                <IoReorderThreeOutline className="query" onClick={()=> click()} />
               </button>
 
               <button className='bg-transparent border-0 text-white'>

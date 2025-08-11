@@ -1,7 +1,4 @@
 import "./Home.css"
-import Footer from "../../components/Footer/Footer";
-import Merque from "../../components/Merque/Merque";
-import Navbar from "../../components/Navbar/Navbar";
 import Slider from "../../components/Slider/Slider";
 import Textslider from "../../components/Textslider/Textslider";
 import Iconitem from "../../components/Iconitem/Iconitem";
@@ -9,8 +6,19 @@ import Havorcard from "../../components/Havorcard/Havorcard";
 import Accordiation from "../../components/Accordiation/Accordiation";
 import Textimgslider from "../../components/Textimgslider/Textimgslider";
 import { Link } from "react-router";
+import { useEffect } from "react";
+import axios from "axios";
 
 export default function Home() {
+
+  // useEffect( ()=>{
+  //   const getproducts = async ()=>{
+  //      const res = await axios.get("https://api.codingarabic.online/api/books")
+  //      console.log(res.data)
+  //   }
+  //   getproducts();
+  // },[])
+
   const itemscontact=[
     {
       id:1,
@@ -35,9 +43,6 @@ export default function Home() {
   ]
   return (
     <>
-      <Merque />
-      <Navbar />
-
       <Slider />
       <Accordiation />
       <Havorcard />    
@@ -162,7 +167,6 @@ export default function Home() {
 
         </div>
       </div>
-      <Footer />
     </>
   )
 }

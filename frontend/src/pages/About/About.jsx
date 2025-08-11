@@ -1,9 +1,5 @@
-import Navbar from '../../components/Navbar/Navbar'
-import Merque from '../../components/Merque/Merque'
-import Footer from '../../components/Footer/Footer'
-import Heroimg from '../../components/Heroimg/Heroimg'
-
 import './About.css'
+import Heroimg from '../../components/Heroimg/Heroimg'
 import Teamcard from '../../components/Teamcard/Teamcard'
 import { useEffect, useState } from 'react'
 import Imgpara from '../../components/Imgpara/Imgpara'
@@ -42,8 +38,6 @@ export default function About() {
 
   return (
     <>
-      <Merque />
-      <Navbar />
       <Heroimg text="about" page="about" icon="'>'"/>
       <Imgpara />
       <div className="counter">
@@ -90,8 +84,6 @@ export default function About() {
         <Textimgslider />
       </div>
       <Havorcard />
-    
-      <Footer />
     </>
   )
 }

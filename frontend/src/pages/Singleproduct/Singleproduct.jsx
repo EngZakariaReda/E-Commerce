@@ -1,8 +1,5 @@
 import { useRef, useState } from 'react'
-import Navbar from '../../components/Navbar/Navbar'
-import Footer from '../../components/Footer/Footer'
 import Heroimg from '../../components/Heroimg/Heroimg'
-import Merque from '../../components/Merque/Merque'
 import { FaPlus } from "react-icons/fa";
 import { FaMinus } from "react-icons/fa";
 import { CiHeart } from "react-icons/ci";
@@ -88,8 +85,6 @@ export default function Singleproduct() {
     ]
   return (
     <>
-        <Merque />
-        <Navbar />
         <Heroimg text="all" page="singleproduct" icon="'>'" />
         <div className='singleproduct'>
             <div className="row g-5 singleproduct">
@@ -180,7 +175,6 @@ export default function Singleproduct() {
                 </div>
             </div>
         </div>
-        <Footer />
     </>
   )
 }
