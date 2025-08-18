@@ -4,28 +4,57 @@ import Heroimg from "../../components/Heroimg/Heroimg";
 
 import './Blog.css'
 import axios from "axios";
+import Loader from "../../components/Loader/Loader";
 
 export default function Blog() {
-  const [blogproducts , setblogproducts] = useState([])
-  const baseurl = "http://localhost:1337/api/blogs/"
+  const [blogproducts , setblogproducts] = useState([]);
+  const [loading , setloading] = useState(false);
+  const baseurl = "http://localhost:1337/api/blogs/";
 
-  useEffect(()=>{
-    const getproducts = async ()=>{
-       try {
-          const res = await axios.get(baseurl ,{
-            params:{
-              populate:"*"
-            }
-          })
-          setblogproducts(res.data.data)
-       }catch (error) {
-          console.log(error)
-       }
-    }
+  useEffect(() => {
+    let isMounted = true;
+    setloading(true);
+
+    const getproducts = async () => {
+      try {
+        const res = await axios.get(baseurl, { params: { populate: "*" } });
+        if (isMounted) {
+          setblogproducts(res.data.data);
+        }
+      } catch (error) {
+        console.error(error);
+      } finally {
+        if (isMounted) setloading(false);
+      }
+    };
+
     getproducts();
-  },[])
+    return () => {
+      isMounted = false;
+    };
+}, []);
 
-  // const blogproducts = [
+  return (
+    <>
+      <Heroimg text="news" page="news" icon="'>'" />
+      {loading === true ? (<Loader />) : (
+      <div style={{margin:"100px 0"}}> 
+        <div className="row m-0 g-4" >
+
+          {
+            blogproducts.map((el)=>{
+              return <Blobitem key={el.documentId} ele={el}/>
+            })
+          }
+          
+        </div>
+      </div>
+      )}
+    </>
+  )
+}
+
+// const blogproducts = [
   //   {
   //     id:1,
   //     headtext:"Elegant & Essential Dinning Hall Furniture & De...",
@@ -63,20 +92,3 @@ export default function Blog() {
   //     src:"/images/blog-06.webp",
   //   },
   // ]
-  return (
-    <>
-      <Heroimg text="news" page="news" icon="'>'" />
-      <div style={{margin:"100px 0"}}> 
-        <div className="row m-0 g-4" >
-
-          {
-            blogproducts.map((el)=>{
-              return <Blobitem key={el.documentId} ele={el}/>
-            })
-          }
-          
-        </div>
-      </div>
-    </>
-  )
-}

@@ -13,6 +13,7 @@ export default function Singleblogitem() {
   const {blogid} = useParams();
 
   useEffect(()=>{
+    let isMounted = true
     const getsingleproducts = async ()=>{
        try {
           const res = await axios.get(`http://localhost:1337/api/blogs/${blogid}` 
@@ -21,15 +22,20 @@ export default function Singleblogitem() {
               populate:"*"
             }
           })
+          if (isMounted) {
           setblogproduct(res.data.data)
           setsorce(`http://localhost:1337${res.data.data.blog_images.url}`)
-
+          }
        }catch (error) {
-          console.log(error)
+          console.error(error)
        }
     }
     getsingleproducts();
+    return () => {
+      isMounted = false;
+    };
   },[])
+
   return (
     <>
         <Heroimgthree text={blogproduct.blog_name} 

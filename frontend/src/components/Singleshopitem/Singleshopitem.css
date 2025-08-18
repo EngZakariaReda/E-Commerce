@@ -26,7 +26,7 @@
     background-color: var(--nav-hover);
     border: 1px solid var(--nav-hover);
 }
-#my-tooltip ,#my-tooltip2 ,#my-tooltip1{
+.custom-tooltip-left{
     background-color: var(--nav-hover) !important;
     color: white;
     border-radius: 25px;

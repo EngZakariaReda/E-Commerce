@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import Heroimg from '../../components/Heroimg/Heroimg'
 import { FaPlus } from "react-icons/fa";
 import { FaMinus } from "react-icons/fa";
@@ -15,74 +15,48 @@ import 'swiper/css/free-mode';
 import 'swiper/css/navigation';
 import 'swiper/css/thumbs';
 import "./Singleproduct.css"
+import { useParams } from 'react-router';
+import axios from 'axios';
+import Loader from '../../components/Loader/Loader';
 
 export default function Singleproduct() {
-    const images = [
-    {
-      id: 1,
-      src: "/images/chair1.jpg", // Replace with your image paths
-      alt: "Chair 1",
-    },
-    {
-      id: 2,
-      src: "/images/chair2.jpg",
-      alt: "Chair 2",
-    },
-    {
-      id: 3,
-      src: "/images/chair3.jpg",
-      alt: "Chair 3",
-    },
-    {
-      id: 3,
-      src: "/images/chair3.jpg",
-      alt: "Chair 3",
-    },
-    {
-      id: 3,
-      src: "/images/chair3.jpg",
-      alt: "Chair 3",
-    },
-    {
-      id: 3,
-      src: "/images/chair3.jpg",
-      alt: "Chair 3",
-    },
-]
-
+    
     const [thumbsSwiper, setThumbsSwiper] = useState(null);
+    const [swiperimages , setswiperimages] = useState([])
+    const [product , setproduct] = useState([])
+    const [loading , setloading] = useState(false)
     const [quantity , setquantity] =useState(1);
     const price =25000;
-    const swiperimages = [
-        {
-            id:1,
-            src:"https://swiperjs.com/demos/images/nature-1.jpg",
-        },
-        {
-            id:2,
-            src:"https://swiperjs.com/demos/images/nature-2.jpg"
-        },
-        {
-            id:3,
-            src:"https://swiperjs.com/demos/images/nature-3.jpg"
-        },
-        {
-            id:4,
-            src:"https://swiperjs.com/demos/images/nature-4.jpg"
-        },
-        {
-            id:5,
-            src:"https://swiperjs.com/demos/images/nature-5.jpg"
-        },
-        {
-            id:6,
-            src:"https://swiperjs.com/demos/images/nature-6.jpg"
-        },
-        {
-            id:7,
-            src:"https://swiperjs.com/demos/images/nature-7.jpg"
-        },
-    ]
+    const baseurl = "http://localhost:1337/api/products"
+    const {productid} = useParams();
+
+    useEffect(()=>{
+        let isMounted = true
+        setloading(true)
+        const getsingleproduct = async ()=>{
+           try {
+              const res = await axios.get(`${baseurl}/${productid}` 
+                ,{
+                params:{
+                  populate:"*"
+                }
+              })
+              if (isMounted) {
+                setproduct(res.data.data);
+                setswiperimages(res.data.data.product_image);
+              }
+           }catch (error) {
+              console.error(error)
+           }finally{
+            if (isMounted) setloading(false)
+           }
+        }
+        getsingleproduct();
+        return () => {
+          isMounted = false;
+        };
+      },[])
+    
   return (
     <>
         <Heroimg text="all" page="singleproduct" icon="'>'" />
@@ -92,7 +66,7 @@ export default function Singleproduct() {
                     
                     <Swiper
                         onSwiper={setThumbsSwiper}
-                        loop={true}
+                        loop={swiperimages.length > 3}
                         spaceBetween={20}
                         slidesPerView={3}
                         direction='vertical'
@@ -103,9 +77,9 @@ export default function Singleproduct() {
                         className="mySwiper"
                     >
                         {
-                            swiperimages.map((ele)=>{
-                                return <SwiperSlide key={ele.id} style={{cursor:"pointer",objectFit:"cover"}}>
-                                    <img src={ele.src} className='w-100 h-100' />
+                            swiperimages.length === 0 ? (<Loader/>) :swiperimages.map((ele)=>{
+                                return <SwiperSlide key={ele.documentId} style={{cursor:"pointer",objectFit:"cover"}}>
+                                    <img src={`http://localhost:1337${ele.url}`} className='w-100 h-100' />
                                 </SwiperSlide>
                             })
                         }
@@ -116,7 +90,7 @@ export default function Singleproduct() {
                         '--swiper-navigation-color': '#fff',
                         '--swiper-pagination-color': '#fff',
                         }}
-                        loop={true}
+                        loop={swiperimages.length > 3}
                         spaceBetween={10}
                         navigation={true}
                         thumbs={{ swiper: thumbsSwiper }}
@@ -124,24 +98,25 @@ export default function Singleproduct() {
                         className="mySwiper2"
                     >
                         {
-                            swiperimages.map((ele)=>{
-                                return <SwiperSlide key={ele.id} style={{objectFit:"cover"}} >
-                                    <img src={ele.src} className='w-100 h-100'/>
+                            swiperimages.length === 0 ? (<Loader/>) : swiperimages.map((ele)=>{
+                                return <SwiperSlide key={ele.documentId} style={{objectFit:"cover"}} >
+                                    <img src={`http://localhost:1337${ele.url}`} className='w-100 h-100'/>
                                 </SwiperSlide>
                             })
                         }
                     </Swiper>
                 </div>
+
                 <div className="col-lg-6">
                     <div className="d-flex flex-column justify-content-between h-100 ">
-                        <h6 className='h2'>Adjustable Leather Sofa</h6>
-                        <p>Rs. {price}</p>
+                        <h6 className='h2'>{product.product_name}</h6>
+                        <p>EGP. {product.product_price}</p>
                         <p className='star'><IoStar /><IoStar /><IoStar /><IoStar /><FaRegStarHalfStroke /> 1 review</p>
                         <p>Vestibulum dapibus ultrices arcu, id varius mauris viverra ac. 
                           Aliquam erat volutpat. Pellentesque commodo ut elit at gravida.
                           Nunc ac molestie turpis. san, fermentum condimentum ligula.
                         </p>
-                        <p>Vendor: <span className='text-secondary'>Office DecorationSeat</span></p>
+                        <p>Vendor: <span className='text-secondary'>{product.product_category}</span></p>
                         <p>Height: <span className='text-secondary'>20 Inches</span></p>
                         <p>Seat Depth:<span className='text-secondary'> 70 Centimeters</span></p>
                         <p><GrDeliver /><span className='text-secondary'> Estimate delivery times:12-26 days (International)</span></p>
@@ -169,8 +144,7 @@ export default function Singleproduct() {
                                 </button>
                             </div>
                         </div>
-                        <p>Sub total: <span className='text-secondary'>Rs. {quantity * price}</span></p>
-
+                        <p>Sub total: <span className='text-secondary'>EGP. {quantity * price}</span></p>
                     </div>
                 </div>
             </div>
@@ -178,3 +152,11 @@ export default function Singleproduct() {
     </>
   )
 }
+/* 
+
+
+
+
+
+
+*/

@@ -3,7 +3,7 @@ import { CiHeart } from "react-icons/ci";
 import { TfiReload } from "react-icons/tfi";
 import { MdOutlineShoppingCartCheckout } from "react-icons/md";
 import { MdOutlineAccountCircle } from "react-icons/md";
-import { IoReorderThreeOutline } from "react-icons/io5";
+import { IoReorderFourSharp } from "react-icons/io5";
 import { Link, NavLink } from "react-router";
 import { useState } from "react";
 import "./Navbar.css"
@@ -20,7 +20,7 @@ export default function Navbar({click}) {
   return (
     <>
       <div className={`headerparent container-fluid my-0`}>
-        <header className={`header container d-flex justify-content-between align-items-center h-100`}>
+        <header className={`header container d-flex justify-content-between align-items-center w-100 h-100`}>
           <div>
             <img src="\images\logo.webp" width={150} className="logo" />
           </div>
@@ -91,13 +91,13 @@ export default function Navbar({click}) {
             </p>
           </div>
 
-          <div className={`d-flex gap-4 align-items-center fs-4`}>
-              <button className='bg-transparent border-0 text-white fs-4'>
-                <IoReorderThreeOutline className="query" onClick={()=> click()} />
+          <div className={`d-flex gap-4 align-items-center icons-nav`}>
+              <button className='bg-transparent border-0 text-white'>
+                <IoReorderFourSharp className="query m-0" onClick={()=> click()} />
               </button>
 
               <button className='bg-transparent border-0 text-white'>
-                <CiSearch />
+                <Link to={"/search"}><CiSearch /></Link>
               </button>
 
               <button className='bg-transparent border-0 text-white'>
@@ -109,11 +109,11 @@ export default function Navbar({click}) {
               </button>
 
               <button className='bg-transparent border-0 text-white'>
-                <MdOutlineShoppingCartCheckout className="smallquery" />
+                <Link to={"/"}><MdOutlineShoppingCartCheckout className="smallquery" /></Link>
               </button>
 
               <button className='bg-transparent border-0 text-white'>
-                <MdOutlineAccountCircle className="smallquery" />
+                <Link to={"/"}><MdOutlineAccountCircle className="smallquery" /></Link>
               </button>
           </div>
         </header>

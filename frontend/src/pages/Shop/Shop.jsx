@@ -1,36 +1,42 @@
 import Heroimgthree from "../../components/Heroimgthree/Heroimgthree";
-import Singleshopitem from "../../components/Singleshopitem/Singleshopitem";
-import Categorieslinks from "../../components/Categorieslinks/Categorieslinks";
+import { useEffect, useState } from "react";
+import axios from "axios";
+import { div } from "framer-motion/client";
+import Contentshop from "../../components/Contentshop/Contentshop";
 import "./Shop.css"
+
 export default function Shop() {
+    const [products , setproducts] = useState([]);
+    const [loading , setloading] = useState(false);
+    const baseurl = "http://localhost:1337/api/products";
+  
+    useEffect(() => {
+      let isMounted = true;
+      setloading(true);
+  
+      const getproducts = async () => {
+        try {
+          const res = await axios.get(baseurl, { params: { populate: "*" } });
+          if (isMounted) {
+            setproducts(res.data.data);
+          }
+        } catch (error) {
+          console.error(error);
+        } finally {
+          if (isMounted) setloading(false);
+        }
+      };
+  
+      getproducts();
+      return () => {
+        isMounted = false;
+      };
+  }, []);
   return (
     <>
       <Heroimgthree text="products" main="all collections" page="products" icon="'>'" link="/collections"/>
-      <div>
-        <div className="row m-0">
-          <div className="col-lg-4 border-end p-4 text-capitalize">
-
-            <h5>filters</h5>
-            <h3>Availability</h3>
-            <div className="d-flex flex-column gap-3">
-              <div className="d-flex align-items-center gap-2">
-                <input type="checkbox" name="In stock"/>
-                <label>In stock </label>
-              </div>
-              <div>
-                <input type="checkbox" name="Out of stock"/>
-                <label>Out of stock</label>
-              </div>
-            </div>
-            <Categorieslinks />
-            <div>
-              <h4>best seller</h4>
-            </div>
-          </div>
-          <div className="col-lg-8">
-            <Singleshopitem />
-          </div>
-        </div>
+      <div style={{margin:"70px 20px"}}>
+        <Contentshop allproducts ={products} loading={loading} />
       </div>
     </>
   )

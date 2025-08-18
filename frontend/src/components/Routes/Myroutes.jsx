@@ -17,6 +17,7 @@ import Compare from "../../pages/Compare/Compare";
 import Mistake from "../../pages/Mistake/Mistake";
 import ScrollToTop from "../Scrolltotop/Scrolltotop";
 import Layout from "../Layout/Layout";
+import Search from "../../pages/Search/Search";
 
 export default function Myroutes() {
   return (
@@ -36,7 +37,7 @@ export default function Myroutes() {
                         </Route>
                         <Route path="/shop" >
                         <Route index element={<Shop />} />
-                        <Route path="/shop/singleproduct" element={<Singleproduct />} />
+                        <Route path="/shop/:productid" element={<Singleproduct />} />
                         </Route>
                         <Route path="/blog">
                         <Route index element={<Blog />} />
@@ -46,6 +47,7 @@ export default function Myroutes() {
                         <Route path="/about" element={<About />} />
                         <Route path="/faq" element={<FAQ />} />
                         <Route path="/contact" element={<Contact />} />
+                        <Route path="/search" element={<Search />} />
                         <Route path="/favourite" element={<Favourite />} />
                         <Route path="/compare" element={<Compare />} />
                         <Route path="/*" element={<Mistake />} />
