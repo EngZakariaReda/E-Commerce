@@ -4,11 +4,13 @@ import axios from "axios";
 import { div } from "framer-motion/client";
 import Contentshop from "../../components/Contentshop/Contentshop";
 import "./Shop.css"
+import { useStore } from "../../Store/Store";
 
 export default function Shop() {
     const [products , setproducts] = useState([]);
     const [loading , setloading] = useState(false);
-    const baseurl = "http://localhost:1337/api/products";
+    const {domain} = useStore()
+    const baseurl = `${domain}/api/products`;
   
     useEffect(() => {
       let isMounted = true;

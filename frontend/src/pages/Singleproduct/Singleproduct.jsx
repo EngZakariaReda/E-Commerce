@@ -18,6 +18,7 @@ import "./Singleproduct.css"
 import { useParams } from 'react-router';
 import axios from 'axios';
 import Loader from '../../components/Loader/Loader';
+import { useStore } from '../../Store/Store';
 
 export default function Singleproduct() {
     
@@ -26,16 +27,18 @@ export default function Singleproduct() {
     const [product , setproduct] = useState([])
     const [loading , setloading] = useState(false)
     const [quantity , setquantity] =useState(1);
-    const price =25000;
-    const baseurl = "http://localhost:1337/api/products"
+    const {domain , addtocart , increasequantity ,decreasequantity,
+    addtowishlist,addtocomparelist,
+    } = useStore()
     const {productid} = useParams();
+    const baseurl = `${domain}/api/products/${productid}`;
 
     useEffect(()=>{
         let isMounted = true
         setloading(true)
         const getsingleproduct = async ()=>{
            try {
-              const res = await axios.get(`${baseurl}/${productid}` 
+              const res = await axios.get(baseurl
                 ,{
                 params:{
                   populate:"*"
@@ -123,9 +126,14 @@ export default function Singleproduct() {
                         <p><IoMdReturnLeft /><span className='text-secondary'> Free return within 30 days of purchase.$79</span></p>
                         <div className='d-flex gap-4 align-items-center'>
                             <p className='parentofqty'>
-                                <button className='py-2 px-3 hovernav plus' onClick={()=>{setquantity(quantity+1)}}><FaPlus /></button>
+                                <button className='py-2 px-3 hovernav plus' onClick={()=>{
+                                    increasequantity(product.documentId,quantity + 1)
+                                    setquantity(quantity + 1)
+                                }}>
+                                <FaPlus /></button>
                                 <span className='py-2 px-3'>{quantity}</span>
                                 <button className='py-2 px-3 hovernav minus' onClick={()=>{
+                                    decreasequantity(product.documentId,quantity - 1)
                                     if (quantity === 1){
                                         setquantity(1)
                                     }else{
@@ -134,17 +142,26 @@ export default function Singleproduct() {
                                     }}><FaMinus />
                                 </button>
                             </p>
-                            <button className='w-50 h-100 py-2 px-3 text-capitalize hovernav addcart'>add to cart</button>
+                            <button className='w-50 h-100 py-2 px-3 text-capitalize hovernav addcart'
+                                onClick={()=>{
+                                    addtocart(product);
+                                }}
+                            >add to cart</button>
+
                             <div className='d-flex gap-3 align-items-center'>
-                                <button className='hoverwhite d-flex justify-content-center align-items-center'>
+                                <button className='hoverwhite d-flex justify-content-center align-items-center'
+                                onClick={()=>addtowishlist(product)}
+                                >
                                     <CiHeart />
                                 </button>
-                                <button className='hoverwhite d-flex justify-content-center align-items-center'>
+                                <button className='hoverwhite d-flex justify-content-center align-items-center'
+                                onClick={()=>addtocomparelist(product)}
+                                >
                                     <VscGitCompare />
                                 </button>
                             </div>
                         </div>
-                        <p>Sub total: <span className='text-secondary'>EGP. {quantity * price}</span></p>
+                        <p>Sub total: <span className='text-secondary'>EGP. {quantity * product.product_price}</span></p>
                     </div>
                 </div>
             </div>

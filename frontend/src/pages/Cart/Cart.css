@@ -1,0 +1,24 @@
+.cart{
+   margin: 50px 0 !important;
+   height: 150px; 
+   box-shadow: 0 0 15px rgba(255, 255, 255, 0.6);
+   text-transform: capitalize;
+}
+.imgitem{
+   width: 150px;
+   height: 150px;
+   border-radius: 50%;
+   text-align: center;
+}
+@media (max-width:426px){
+   .cart{
+      height: 200px; 
+   }
+   .cart div{
+      height: 50% !important; 
+   }
+   .imgitem{
+      width: 75px;
+      height: 75px;
+   }
+}

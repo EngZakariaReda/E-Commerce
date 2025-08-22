@@ -5,18 +5,20 @@ import { FaCheck } from "react-icons/fa";
 import { Link, useParams } from 'react-router'
 import { useEffect, useState} from 'react'
 import axios from 'axios';
+import { useStore } from '../../Store/Store';
 
 export default function Singleblogitem() {
   const [blogproduct , setblogproduct] = useState({})
   const [sorce , setsorce] = useState("#")
-
   const {blogid} = useParams();
+  const {domain} = useStore()
+  const baseurl = `${domain}/api/blogs/${blogid}`;
 
   useEffect(()=>{
     let isMounted = true
     const getsingleproducts = async ()=>{
        try {
-          const res = await axios.get(`http://localhost:1337/api/blogs/${blogid}` 
+          const res = await axios.get(baseurl 
             ,{
             params:{
               populate:"*"
@@ -24,7 +26,7 @@ export default function Singleblogitem() {
           })
           if (isMounted) {
           setblogproduct(res.data.data)
-          setsorce(`http://localhost:1337${res.data.data.blog_images.url}`)
+          setsorce(`${domain}${res.data.data.blog_images.url}`)
           }
        }catch (error) {
           console.error(error)

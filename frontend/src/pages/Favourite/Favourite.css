@@ -1,0 +1,22 @@
+.containwishlist{
+    margin: 60px 20px;
+}
+.containwishlist div div h4{
+    font-size: 20px;
+}
+.remove{
+    background-color: var(--nav-hover);
+    color: white;
+    width: 120px;
+    margin: auto;
+    padding: 10px 20px;
+    border-radius: 20px;
+    text-transform: capitalize;
+    font-size: 20px;
+    border: 0;
+    outline: 0;
+}
+.remove:hover{
+    color: var(--nav-hover);
+    background-color: white;
+}

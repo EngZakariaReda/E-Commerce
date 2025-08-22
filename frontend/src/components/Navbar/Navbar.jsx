@@ -10,12 +10,11 @@ import "./Navbar.css"
 
 export default function Navbar({click}) {
 
-   const [isactive , setactive ] = useState(null)
-   const [basic , setbasic ] = useState("rgb(221, 114, 16)")
+   const [isactive , setactive ] = useState(0)
    const changecolor=(index)=>{
-       setbasic("white");
        setactive(index);    
    }
+   console.log(isactive)
 
   return (
     <>
@@ -27,34 +26,26 @@ export default function Navbar({click}) {
 
           <div className={`d-flex gap-5 align-items-center text-capitalize nav`}>
             <p className="m-0">
-              <NavLink to={"/"} style={{color:{basic}}} className={isactive === 0 ? "active" : " "}
-               onClick={()=>{
-                changecolor(0)
-              }}>home
+              <NavLink to={"/"} className={isactive === 0 ? "active" : " "}
+               onClick={()=>{changecolor(0)}}>home
               </NavLink>
             </p>
 
             <p className="m-0">
               <NavLink to={"/collections"} className={isactive === 1 ? "active" : " "}
-              onClick={()=>{
-                changecolor(1)
-              }}>collections
+              onClick={()=>{changecolor(1)}}>collections
               </NavLink>
             </p>
 
             <p className="m-0">
               <NavLink to={"/shop"} className={isactive === 2 ? "active" : " "}
-              onClick={()=>{
-                changecolor(2)
-              }}>shop
+              onClick={()=>{changecolor(2)}}>shop
               </NavLink>
             </p>
             
             <p className="m-0">
               <NavLink to={"/blog"} className={isactive === 3 ? "active" : " "}
-              onClick={()=>{
-                changecolor(3)
-              }}>blog
+              onClick={()=>{changecolor(3)}}>blog
               </NavLink>
             </p>
 
@@ -66,17 +57,13 @@ export default function Navbar({click}) {
               <div className={`dropdownmenu dropdown-menu`} aria-labelledby="dropdownMenuLink">
                 <span className={`dropdown-item text-white text-uppercase dropdownsingle`}>
                   <NavLink to={"/about"} className={isactive === 4 ? "active" : " "}
-                    onClick={()=>{
-                      changecolor(4)
-                    }}>about
+                    onClick={()=>{changecolor(4)}}>about
                   </NavLink>
                 </span>
 
                 <span className={`dropdown-item text-white text-uppercase dropdownsingle`}>
                   <NavLink to={"/faq"} className={isactive === 5 ? "active" : " "}
-                    onClick={()=>{
-                      changecolor(5)
-                    }}>Faq
+                    onClick={()=>{changecolor(5)}}>Faq
                   </NavLink>
                 </span>
               </div>
@@ -84,36 +71,43 @@ export default function Navbar({click}) {
 
             <p className="m-0">
               <NavLink to={"/contact"} className={isactive === 6 ? "active" : " "}
-                onClick={()=>{
-                  changecolor(6)
-                }}>contact
+                onClick={()=>{changecolor(6)}}>contact
               </NavLink>
             </p>
           </div>
 
-          <div className={`d-flex gap-4 align-items-center icons-nav`}>
+          <div className={`d-flex gap-4 h-100 align-items-center icons-nav`}>
               <button className='bg-transparent border-0 text-white'>
-                <IoReorderFourSharp className="query m-0" onClick={()=> click()} />
+                <IoReorderFourSharp className="query m-0"
+                 onClick={()=> click()} />
               </button>
 
               <button className='bg-transparent border-0 text-white'>
-                <Link to={"/search"}><CiSearch /></Link>
+                <Link to={"/search"}><CiSearch className={isactive === 7 ? "active" : " "}
+                  onClick={()=>{changecolor(7)}} /></Link>
+              </button>
+
+              <button className='bg-transparent border-0 text-white parentlength'>
+                <Link to={"/wishlist"}><MdOutlineShoppingCartCheckout className={isactive === 8 ? "active" : " "}
+                onClick={()=>{changecolor(8)}} /></Link>
+                <div className="lenghtnumber"></div>
               </button>
 
               <button className='bg-transparent border-0 text-white'>
-                <Link to={"/favourite"}><CiHeart /></Link>
+                <Link to={"/favourite"} className={isactive === 9 ? "active" : " "}
+                onClick={()=>{changecolor(9)}}><CiHeart /></Link>
+                <div className="lenghtnumber"></div>
               </button>
 
               <button className='bg-transparent border-0 text-white'>
-                <Link to={"/compare"}><TfiReload /></Link>
+                <Link to={"/compare"}><TfiReload className={isactive === 10 ? "active" : " "}
+                onClick={()=>{changecolor(10)}} /></Link>
+                <div className="lenghtnumber"></div>
               </button>
 
               <button className='bg-transparent border-0 text-white'>
-                <Link to={"/"}><MdOutlineShoppingCartCheckout className="smallquery" /></Link>
-              </button>
-
-              <button className='bg-transparent border-0 text-white'>
-                <Link to={"/"}><MdOutlineAccountCircle className="smallquery" /></Link>
+                <Link to={"/"}><MdOutlineAccountCircle className={isactive === 11 ? "active" : " "}
+                onClick={()=>{changecolor(11)}} /></Link>
               </button>
           </div>
         </header>

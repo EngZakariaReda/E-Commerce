@@ -1,6 +1,8 @@
 import Heroimg from "../../components/Heroimg/Heroimg";
+import { useStore } from "../../Store/Store";
 
 export default function Compare() {
+  const {domain , comparelist , removefromcomparelist} = useStore()
   return (
     <>
       <Heroimg text="compare" page="compare" icon="'>'"/>

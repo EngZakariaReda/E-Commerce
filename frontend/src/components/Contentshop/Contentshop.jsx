@@ -46,6 +46,7 @@ export default function Contentshop({allproducts , loading}) {
                     category={product.product_category}
                     price={product.product_price}
                     images={product.product_image}
+                    item={product}
                   />
                   ))} 
                 </div>

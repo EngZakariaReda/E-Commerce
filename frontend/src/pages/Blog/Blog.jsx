@@ -5,11 +5,13 @@ import Heroimg from "../../components/Heroimg/Heroimg";
 import './Blog.css'
 import axios from "axios";
 import Loader from "../../components/Loader/Loader";
+import { useStore } from "../../Store/Store";
 
 export default function Blog() {
   const [blogproducts , setblogproducts] = useState([]);
   const [loading , setloading] = useState(false);
-  const baseurl = "http://localhost:1337/api/blogs/";
+  const {domain} = useStore()
+  const baseurl = `${domain}/api/blogs`;
 
   useEffect(() => {
     let isMounted = true;

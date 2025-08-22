@@ -18,6 +18,7 @@ import Mistake from "../../pages/Mistake/Mistake";
 import ScrollToTop from "../Scrolltotop/Scrolltotop";
 import Layout from "../Layout/Layout";
 import Search from "../../pages/Search/Search";
+import Cart from "../../pages/Cart/Cart";
 
 export default function Myroutes() {
   return (
@@ -36,13 +37,12 @@ export default function Myroutes() {
                         <Route path="/collections/outdecoration" element={<Outdoordecoration />} />
                         </Route>
                         <Route path="/shop" >
-                        <Route index element={<Shop />} />
-                        <Route path="/shop/:productid" element={<Singleproduct />} />
+                            <Route index element={<Shop />} />
+                            <Route path="/shop/:productid" element={<Singleproduct />} />
                         </Route>
                         <Route path="/blog">
                         <Route index element={<Blog />} />
-                        <Route path="/blog/:blogid" element={<Singleblogitem />} />
-
+                            <Route path="/blog/:blogid" element={<Singleblogitem />} />
                         </Route>
                         <Route path="/about" element={<About />} />
                         <Route path="/faq" element={<FAQ />} />
@@ -50,6 +50,7 @@ export default function Myroutes() {
                         <Route path="/search" element={<Search />} />
                         <Route path="/favourite" element={<Favourite />} />
                         <Route path="/compare" element={<Compare />} />
+                        <Route path="/wishlist" element={<Cart />} />
                         <Route path="/*" element={<Mistake />} />
                     </Route>
                 </Route>
