@@ -2,6 +2,7 @@ import { Link } from 'react-router'
 import Heroimg from '../../components/Heroimg/Heroimg'
 import { useStore } from '../../Store/Store'
 import "./Favourite.css"
+import { ToastContainer } from 'react-toastify'
 export default function Favourite() {
   const {domain , wishlist , removefromwishlist} = useStore()
   return (
@@ -43,6 +44,7 @@ export default function Favourite() {
           </div>
         </div>
       }
+      <ToastContainer style={{ top: '15vh' , right:'0' }} />
     </>
   )
 }

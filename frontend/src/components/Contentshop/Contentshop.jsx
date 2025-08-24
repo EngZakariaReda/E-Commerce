@@ -15,24 +15,28 @@ export default function Contentshop({allproducts , loading}) {
   return (
     <>
         <div className="row m-0">
-          <div className="col-lg-4 border-end p-4 text-capitalize">
+          <div className="col-lg-4 border-lg-end p-4 text-capitalize">
 
-            <h5>filters</h5>
-            <h3>Availability</h3>
+            <h5 className='my-4 fs-1'>filters</h5>
             <div className="d-flex flex-column gap-3">
               <div className="d-flex align-items-center gap-2">
-                <input type="checkbox" name="In stock"/>
-                <label>In stock </label>
+                <input type="checkbox" name="Alphabetically, A-Z"/>
+                <label>Alphabetically, A-Z </label>
               </div>
               <div>
-                <input type="checkbox" name="Out of stock"/>
-                <label>Out of stock</label>
+                <input type="checkbox" name="Alphabetically, Z-A"/>
+                <label>Alphabetically, Z-A</label>
+              </div>
+              <div>
+                <input type="checkbox" name="Price, low to high"/>
+                <label>Price, low to high</label>
+              </div>
+              <div>
+                <input type="checkbox" name="Price, high to low"/>
+                <label>Price, high to low</label>
               </div>
             </div>
             <Categorieslinks />
-            <div>
-              <h4>best seller</h4>
-            </div>
           </div>
           
           <div className="col-lg-8">

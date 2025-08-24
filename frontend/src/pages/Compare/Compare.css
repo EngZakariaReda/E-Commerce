@@ -1,0 +1,16 @@
+table{
+    margin: 70px 0;
+    background-color: var(--background-color);
+}
+table tbody tr td img{
+    width: 150px;
+    height: 100px;
+    object-fit: fill;
+}
+@media (max-width:426px){
+   table tbody tr td img{
+        width: 100px;
+        height: 50px;
+        object-fit: fill;
+    }
+}

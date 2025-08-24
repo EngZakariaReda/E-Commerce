@@ -19,3 +19,13 @@
 .breadcrumb-item+.breadcrumb-item::before{
     color: white;
 }
+/* @media (max-width:768px){
+   .Heroimg{
+        height: 30vh;
+    }
+}
+@media (max-width:426px){
+   .Heroimg{
+        height: 100vh;
+    }
+} */

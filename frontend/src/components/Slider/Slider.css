@@ -1,17 +1,19 @@
 .slid{
     height: 80vh;
+    overflow: hidden;
 }
 .slid_1,.slid_2,.slid_3{
-    background-image: url("../images/img-1.webp");
-    background-size: cover;
-    background-position: center;
-    width: 100%;
+    background-image: url("../images/slider-img-2.webp");
+    background-size: cover;       
+    background-position: center;  
+    background-repeat: no-repeat;
+
 }
 .slid_2{
-    background-image: url("../images/img-2.webp");
+    background-image: url("../images/Rectangle_38937_1.webp");
 }
 .slid_3{
-    background-image: url("../images/blog-03.webp");
+    background-image: url("../images/slider-img-03_ceb10e02-b97b-4d28-bf36-b6e94130fdbf.webp");
 }
 .activebtn{
     background-color: var(--nav-hover);

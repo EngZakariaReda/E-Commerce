@@ -1,20 +1,22 @@
-import { CiSearch } from "react-icons/ci";
-import { CiHeart } from "react-icons/ci";
+import { IoSearchSharp  } from "react-icons/io5";
+import { GrFavorite } from "react-icons/gr";
 import { TfiReload } from "react-icons/tfi";
 import { MdOutlineShoppingCartCheckout } from "react-icons/md";
-import { MdOutlineAccountCircle } from "react-icons/md";
+import { BsPersonCircle  } from "react-icons/bs";
 import { IoReorderFourSharp } from "react-icons/io5";
 import { Link, NavLink } from "react-router";
 import { useState } from "react";
 import "./Navbar.css"
+import { useStore } from "../../Store/Store";
 
 export default function Navbar({click}) {
-
-   const [isactive , setactive ] = useState(0)
+   const {wishlist , cart , comparelist} = useStore()
+   const activevalue = JSON.parse(sessionStorage.getItem("value")) || 0 ;
+   const [isactive , setactive ] = useState(activevalue);
    const changecolor=(index)=>{
-       setactive(index);    
+      sessionStorage.setItem("value" , JSON.stringify(index)); 
+      setactive(index);
    }
-   console.log(isactive)
 
   return (
     <>
@@ -49,10 +51,10 @@ export default function Navbar({click}) {
               </NavLink>
             </p>
 
-            <div className="m-0">
-              <a className={"dropdown-toggle"}
+            <div className="m-0"> 
+              <a className={`dropdown-toggle`}
                  href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
-                pages
+                  pages
               </a>
               <div className={`dropdownmenu dropdown-menu`} aria-labelledby="dropdownMenuLink">
                 <span className={`dropdown-item text-white text-uppercase dropdownsingle`}>
@@ -83,30 +85,30 @@ export default function Navbar({click}) {
               </button>
 
               <button className='bg-transparent border-0 text-white'>
-                <Link to={"/search"}><CiSearch className={isactive === 7 ? "active" : " "}
+                <Link to={"/search"}><IoSearchSharp  className={isactive === 7 ? "active" : " "}
                   onClick={()=>{changecolor(7)}} /></Link>
               </button>
 
               <button className='bg-transparent border-0 text-white parentlength'>
                 <Link to={"/wishlist"}><MdOutlineShoppingCartCheckout className={isactive === 8 ? "active" : " "}
                 onClick={()=>{changecolor(8)}} /></Link>
-                <div className="lenghtnumber"></div>
+                <div className={cart.length === 0 ? "d-none" : "lenghtnumber"}>{cart.length}</div>
               </button>
 
-              <button className='bg-transparent border-0 text-white'>
+              <button className='bg-transparent border-0 text-white parentlength'>
                 <Link to={"/favourite"} className={isactive === 9 ? "active" : " "}
-                onClick={()=>{changecolor(9)}}><CiHeart /></Link>
-                <div className="lenghtnumber"></div>
+                onClick={()=>{changecolor(9)}}><GrFavorite /></Link>
+                <div className={wishlist.length === 0 ? "d-none" : "lenghtnumber"}>{wishlist.length}</div>
               </button>
 
-              <button className='bg-transparent border-0 text-white'>
+              <button className='bg-transparent border-0 text-white parentlength'>
                 <Link to={"/compare"}><TfiReload className={isactive === 10 ? "active" : " "}
                 onClick={()=>{changecolor(10)}} /></Link>
-                <div className="lenghtnumber"></div>
+                <div className={comparelist.length === 0 ? "d-none" : "lenghtnumber"}>{comparelist.length}</div>
               </button>
 
               <button className='bg-transparent border-0 text-white'>
-                <Link to={"/"}><MdOutlineAccountCircle className={isactive === 11 ? "active" : " "}
+                <Link to={"/"}><BsPersonCircle  className={isactive === 11 ? "active" : " "}
                 onClick={()=>{changecolor(11)}} /></Link>
               </button>
           </div>

@@ -19,6 +19,7 @@ import { useParams } from 'react-router';
 import axios from 'axios';
 import Loader from '../../components/Loader/Loader';
 import { useStore } from '../../Store/Store';
+import { ToastContainer } from 'react-toastify';
 
 export default function Singleproduct() {
     
@@ -166,14 +167,7 @@ export default function Singleproduct() {
                 </div>
             </div>
         </div>
+        <ToastContainer style={{ top: '15vh' , right:'0' }} />
     </>
   )
 }
-/* 
-
-
-
-
-
-
-*/

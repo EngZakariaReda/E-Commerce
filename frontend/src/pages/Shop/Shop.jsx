@@ -5,6 +5,7 @@ import { div } from "framer-motion/client";
 import Contentshop from "../../components/Contentshop/Contentshop";
 import "./Shop.css"
 import { useStore } from "../../Store/Store";
+import { ToastContainer } from "react-toastify";
 
 export default function Shop() {
     const [products , setproducts] = useState([]);
@@ -40,6 +41,7 @@ export default function Shop() {
       <div style={{margin:"70px 20px"}}>
         <Contentshop allproducts ={products} loading={loading} />
       </div>
+      <ToastContainer style={{ top: '15vh' , right:'0' }} />
     </>
   )
 }
