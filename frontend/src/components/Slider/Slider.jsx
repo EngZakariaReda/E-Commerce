@@ -9,7 +9,7 @@ export default function Slider() {
   const images = [
   {
     id: 1,
-    class: "slid_1",
+    nameclass: "slid_1",
     headtext: "Enjoy style And Comfort",
     headp: "CRAFTSMANSHIP",
     headpara:
@@ -42,7 +42,7 @@ export default function Slider() {
         {images.map((item) => (
           <SwiperSlide
             key={item.id}
-            className={`${item.class} d-flex gap-3 flex-column justify-content-center align-items-center`}
+            className={`${item.nameclass} d-flex gap-3 flex-column justify-content-center align-items-center`}
           >
             <p className="m-0 activelink">
               <Link to={"/"} className="activelink">{item.headp}</Link>
@@ -58,44 +58,3 @@ export default function Slider() {
     </>
   );
 }
- /* 
- 
- 
-         <SwiperSlide className={`slid_1 d-flex gap-4 flex-column justify-content-center align-items-center`}>
-          <p className={`m-0 activelink`}><a href="#" className={`activelink`}>CRAFTSMANSHIP</a></p>
-          <h3>Enjoy style And Comfort</h3>
-          <p className="m-0 w-50 text-center">
-            Consectetur a erat nam at. Facilisis magna etiam tempor orci. Sem et tortor consequat 
-            id. Fermentum egestas tellus. Nunc eu hendrerit turpis. Fusce non lectus sem
-            . In pellentesque nunc non Donec pretium gravida neque et placerat.
-          </p>
-          <button className={`py-2 px-3 rounded-pill border-0 activebtn`}>Shop Now</button>
-        </SwiperSlide>
-
-        <SwiperSlide className={`slid_2 d-flex gap-4 flex-column justify-content-center align-items-center`}>
-          <p className={`m-0 activelink`}><a href="#" className={`activelink`}>LUXURIOUS LIFESTYLE</a></p>
-          <h3>Browse living room pieces</h3>
-          <p className="m-0 w-50 text-center">
-            Consectetur a erat nam at. Facilisis magna etiam tempor orci. Sem et tortor consequat id.
-            Fermentum egestas tellus. Nunc eu hendrerit turpis. Fusce non lectus sem. In pellentesque
-              nunc non Donec pretium gravida neque et placerat.
-          </p>
-          <button className={`py-2 px-3 rounded-pill border-0 activebtn`}>Shop Now</button>
-        </SwiperSlide>
-
-        <SwiperSlide className={`slid_1 d-flex gap-4 flex-column justify-content-center align-items-center`}>
-          <p className={`m-0 activelink`}><a href="#" className={`activelink`}>MASTERPIECE</a></p>
-          <h3>The Art of Beautiful Living</h3>
-          <p className="m-0 w-50 text-center">
-          Consectetur a erat nam at. Facilisis magna etiam tempor orci. Sem et tortor consequat id. 
-          Fermentum egestas tellus. Nunc eu hendrerit turpis. Fusce non lectus sem. In pellentesque nunc non 
-          Donec pretium gravida neque et placerat.
-          </p>
-          <button className={`py-2 px-3 rounded-pill border-0 activebtn`}>Shop Now</button>
-        </SwiperSlide>
- 
- 
- 
- 
- 
- */

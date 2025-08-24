@@ -21,8 +21,11 @@
 }
 .activebtn:hover{
     background-color: white;
-    color: black;
 }
+/* .activebtn:hover{
+    background-color: white;
+    color: black;
+} */
 .activelink{
     color: var(--nav-hover);
 }
