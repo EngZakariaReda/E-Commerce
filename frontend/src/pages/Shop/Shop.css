@@ -2,4 +2,9 @@ input[type="checkbox"] {
   accent-color: var(--nav-hover); 
   border: none;
   outline: none;
+  transform: scale(2);
+  cursor: pointer;
+}
+.filter div label{
+  font-size: 30px;
 }

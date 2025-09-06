@@ -1,10 +1,17 @@
+import { motion } from 'framer-motion'
 import "./Accordiation.css"
 
 export default function Accordiation() {
   return (
     <div className="container my-5">
         <div className="row m-0 g-5">
-            <div className="col-lg-7 col-12 accord">
+            <motion.div
+            className="col-lg-7 col-12 accord"
+            initial={{ x: -150, opacity: 0 }}
+            whileInView={{ x: 0, opacity: 1 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.8, ease: 'easeOut' }}
+            >
                 <div>
                     <p>Products & Service</p>
                     <h4>Products & Service</h4>
@@ -102,9 +109,15 @@ export default function Accordiation() {
                         </div>
                     </div>
                 </div>
-            </div>
+            </motion.div>
 
-            <div className="col-lg-5 col-12 imgpart">
+            <motion.div
+            className="col-lg-5 col-12 imgpart"
+            initial={{ x: 150, opacity: 0 }}
+            whileInView={{ x: 0, opacity: 1 }}
+            viewport={{ once: true, amount: 0.3 }} 
+            transition={{ duration: 0.8, ease: 'easeOut' }}
+            >
                 <div className="d-flex flex-column h-100 justify-content-between">
                     <div className="d-flex flex-column gap-3">
                         <h5>contact us</h5>
@@ -113,7 +126,7 @@ export default function Accordiation() {
                     </div>
                     <img src="/images/Group_131809.webp" alt="#" className='w-100'/>
                 </div>
-            </div>
+            </motion.div>
         </div>
     </div>
   )

@@ -6,18 +6,8 @@ import Havorcard from "../../components/Havorcard/Havorcard";
 import Accordiation from "../../components/Accordiation/Accordiation";
 import Textimgslider from "../../components/Textimgslider/Textimgslider";
 import { Link } from "react-router";
-import { useEffect } from "react";
-import axios from "axios";
 
 export default function Home() {
-
-  // useEffect( ()=>{
-  //   const getproducts = async ()=>{
-  //      const res = await axios.get("https://api.codingarabic.online/api/books")
-  //      console.log(res.data)
-  //   }
-  //   getproducts();
-  // },[])
 
   const itemscontact=[
     {

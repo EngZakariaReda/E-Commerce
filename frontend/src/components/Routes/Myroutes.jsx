@@ -19,6 +19,8 @@ import ScrollToTop from "../Scrolltotop/Scrolltotop";
 import Layout from "../Layout/Layout";
 import Search from "../../pages/Search/Search";
 import Cart from "../../pages/Cart/Cart";
+import Register from "../../pages/Register/Register";
+import Login from "../../pages/Login/Login";
 
 export default function Myroutes() {
   return (
@@ -51,6 +53,8 @@ export default function Myroutes() {
                         <Route path="/favourite" element={<Favourite />} />
                         <Route path="/compare" element={<Compare />} />
                         <Route path="/wishlist" element={<Cart />} />
+                        <Route path="/register" element={<Register />} />
+                        <Route path="/login" element={<Login />} />
                         <Route path="/*" element={<Mistake />} />
                     </Route>
                 </Route>

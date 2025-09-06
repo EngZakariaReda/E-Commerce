@@ -25,7 +25,7 @@ export default function Favourite() {
           <div className="row m-0 g-4">
             {
               wishlist.map((item)=>(
-                <div className='col-lg-3 col-md-6 col-12 text-center shopproduct'>
+                <div key={item.documentId} className='col-lg-3 col-md-6 col-12 text-center shopproduct'>
                   <div className='d-flex flex-column gap-3'>
                     <div className='w-100' style={{height:"300px"}}>
                       <Link to={`/shop/${item.documentId}`}>

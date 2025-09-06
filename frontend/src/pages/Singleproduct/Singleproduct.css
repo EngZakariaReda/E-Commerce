@@ -79,3 +79,20 @@ button{
     border: 1px solid var(--nav-hover);
     border-radius: 15px;
 }
+@media(max-width:768px){
+    .detaiedparent{
+        gap: 10px !important;
+    }
+}
+@media(max-width:426px){
+    .operationparent{
+        gap: 10px !important;
+    }
+    .hovernav{
+        width: 30% !important;
+        padding: 5px 5px !important;
+    }
+    .parentofqty{
+        width: 30%;
+    }
+}

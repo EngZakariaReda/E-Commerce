@@ -39,7 +39,7 @@ export default function Shop() {
     <>
       <Heroimgthree text="products" main="all collections" page="products" icon="'>'" link="/collections"/>
       <div style={{margin:"70px 20px"}}>
-        <Contentshop allproducts ={products} loading={loading} />
+        <Contentshop allproducts ={products} setproducts={setproducts} loading={loading} />
       </div>
       <ToastContainer style={{ top: '15vh' , right:'0' }} />
     </>

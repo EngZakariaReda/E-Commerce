@@ -1,12 +1,16 @@
-import styles from "./Merque.module.css"
 import { FaFacebook } from "react-icons/fa";
 import { FaLinkedin } from "react-icons/fa6";
 import { CiInstagram } from "react-icons/ci";
+import { motion } from 'framer-motion'
+import styles from "./Merque.module.css"
 
 export default function Merque() {
   return (
     <>
-        <div className={`container ${styles.merque} `}>
+        <motion.div
+        className={`container ${styles.merque} `}
+        
+        >
             <div className={`row m-0 h-100`}>
                 <div className="col-4 col-lg-4">
                     <div className="d-flex h-100 gap-4 align-items-center justify-content-center" style={{cursor:"pointer"}}>
@@ -27,7 +31,7 @@ export default function Merque() {
                     <p className="text-capitalize">egypt</p>
                 </div>
             </div>
-        </div>
+        </motion.div>
     </>
   )
 }

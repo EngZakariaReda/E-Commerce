@@ -29,6 +29,9 @@
     }    
 }
 @media (max-width:426px){
+    .Heroimg{
+        height: 35vh;
+    }
     .Heroimg h3{
         font-size: 20px;
         line-height: 30px;

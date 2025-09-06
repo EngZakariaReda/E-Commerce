@@ -1,25 +1,25 @@
-import { useEffect, useRef, useState } from 'react'
+import { FreeMode, Navigation, Thumbs } from 'swiper/modules';
 import Heroimg from '../../components/Heroimg/Heroimg'
+import { FaRegStarHalfStroke } from "react-icons/fa6";
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { useEffect, useRef, useState } from 'react'
+import { VscGitCompare } from "react-icons/vsc";
 import { FaPlus } from "react-icons/fa";
 import { FaMinus } from "react-icons/fa";
 import { CiHeart } from "react-icons/ci";
-import { VscGitCompare } from "react-icons/vsc";
 import { GrDeliver } from "react-icons/gr";
 import { IoMdReturnLeft } from "react-icons/io";
 import { IoStar } from "react-icons/io5";
-import { FaRegStarHalfStroke } from "react-icons/fa6";
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { FreeMode, Navigation, Thumbs } from 'swiper/modules';
-import 'swiper/css';
-import 'swiper/css/free-mode';
-import 'swiper/css/navigation';
-import 'swiper/css/thumbs';
-import "./Singleproduct.css"
 import { useParams } from 'react-router';
 import axios from 'axios';
 import Loader from '../../components/Loader/Loader';
 import { useStore } from '../../Store/Store';
 import { ToastContainer } from 'react-toastify';
+import 'swiper/css';
+import 'swiper/css/free-mode';
+import 'swiper/css/navigation';
+import 'swiper/css/thumbs';
+import "./Singleproduct.css"
 
 export default function Singleproduct() {
     
@@ -112,7 +112,7 @@ export default function Singleproduct() {
                 </div>
 
                 <div className="col-lg-6">
-                    <div className="d-flex flex-column justify-content-between h-100 ">
+                    <div className="d-flex flex-column justify-content-between h-100 detaiedparent">
                         <h6 className='h2'>{product.product_name}</h6>
                         <p>EGP. {product.product_price}</p>
                         <p className='star'><IoStar /><IoStar /><IoStar /><IoStar /><FaRegStarHalfStroke /> 1 review</p>
@@ -125,7 +125,7 @@ export default function Singleproduct() {
                         <p>Seat Depth:<span className='text-secondary'> 70 Centimeters</span></p>
                         <p><GrDeliver /><span className='text-secondary'> Estimate delivery times:12-26 days (International)</span></p>
                         <p><IoMdReturnLeft /><span className='text-secondary'> Free return within 30 days of purchase.$79</span></p>
-                        <div className='d-flex gap-4 align-items-center'>
+                        <div className='d-flex gap-4 align-items-center operationparent'>
                             <p className='parentofqty'>
                                 <button className='py-2 px-3 hovernav plus' onClick={()=>{
                                     increasequantity(product.documentId,quantity + 1)
@@ -149,7 +149,7 @@ export default function Singleproduct() {
                                 }}
                             >add to cart</button>
 
-                            <div className='d-flex gap-3 align-items-center'>
+                            <div className='d-flex gap-3 align-items-center wishcompare'>
                                 <button className='hoverwhite d-flex justify-content-center align-items-center'
                                 onClick={()=>addtowishlist(product)}
                                 >

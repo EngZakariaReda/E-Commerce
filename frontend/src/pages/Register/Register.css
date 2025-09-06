@@ -1,0 +1,33 @@
+.registerparent{
+    background-color: var(--form-color);
+    margin: 60px 0;
+    padding: 60px 0;
+}
+.registerparent h4{
+    font-size: 45px;
+    text-transform: capitalize;
+}
+.registerparent p{
+    font-size: 20px;
+    text-transform: capitalize;
+}
+.registerparent form input{
+    border: 1px solid #5e5e5e;
+    border-radius: 50px;
+    color: white;
+    outline: 0;
+    background-color: transparent;
+}
+.registerparent form input:focus{
+    border: 1px solid var(--nav-hover);
+}
+.registerbtn{
+    background-color: var(--nav-hover);
+    color: white;
+    width: 150px;
+    font-size: 25px;
+}
+.registerbtn:hover{
+    background-color: white;
+    color: black;
+}

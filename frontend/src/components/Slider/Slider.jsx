@@ -9,6 +9,7 @@ export default function Slider() {
   const images = [
   {
     id: 1,
+    link:"/collections/homedecoration",
     nameclass: "slid_1",
     headtext: "Enjoy style And Comfort",
     headp: "CRAFTSMANSHIP",
@@ -17,7 +18,8 @@ export default function Slider() {
   },
   {
     id: 2,
-    class: "slid_2",
+    link:"collections/indecoration",
+    nameclass: "slid_2",
     headtext: "Browse living room pieces",
     headp: "LUXURIOUS LIFESTYLE",
     headpara:
@@ -25,7 +27,8 @@ export default function Slider() {
   },
   {
     id: 3,
-    class: "slid_3",
+    link:"/collections/officedecoration",
+    nameclass: "slid_3",
     headtext: "The Art of Beautiful Living",
     headp: "MASTERPIECE",
     headpara:
@@ -45,12 +48,12 @@ export default function Slider() {
             className={`${item.nameclass} d-flex gap-3 flex-column justify-content-center align-items-center`}
           >
             <p className="m-0 activelink">
-              <Link to={"/"} className="activelink">{item.headp}</Link>
+              {item.headp}
             </p>
             <h3>{item.headtext}</h3>
             <p className="m-0 w-50 text-center">{item.headpara}</p>
-            <button className="activebtn py-2 px-3 rounded-pill border-0">
-              Shop Now
+            <button className="sliderbtn py-2 px-3 rounded-pill border-0">
+              <Link to={item.link}>Shop Now</Link>
             </button>
           </SwiperSlide>
         ))}
