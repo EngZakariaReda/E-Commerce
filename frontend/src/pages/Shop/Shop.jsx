@@ -1,8 +1,8 @@
 import Heroimgthree from "../../components/Heroimgthree/Heroimgthree";
+import Contentshop from "../../components/Contentshop/Contentshop";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { div } from "framer-motion/client";
-import Contentshop from "../../components/Contentshop/Contentshop";
 import "./Shop.css"
 import { useStore } from "../../Store/Store";
 import { ToastContainer } from "react-toastify";
