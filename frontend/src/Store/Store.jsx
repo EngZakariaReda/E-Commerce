@@ -8,16 +8,17 @@ export const useStore = create(persist(
 
       jwt_token : Cookies.get("jwt_token") || null ,
       settoken : (newtoken) =>{ 
-        Cookies.set("jwt_token", newtoken ,{ expires: 7 , secure: true, })
+        Cookies.set("jwt_token", newtoken ,{ expires: 7 , secure: true})
         set({jwt_token:newtoken})
       },
       removetoken : () =>{ 
-        Cookies.remove("jwt_token")
+        Cookies.remove("jwt_token",{ path: "/", secure: true })
         set({jwt_token:null})
       },
 
-      activevalue:0,
+      activevalue: JSON.parse(sessionStorage.getItem("activepage")) || 0,
       changecolor: (index) => {
+        sessionStorage.setItem("activepage" , JSON.stringify(index))
         set({ activevalue: index });
       },
 
@@ -26,16 +27,20 @@ export const useStore = create(persist(
 
       cart: [],
       addtocart: (product) => {
-        const cart = get().cart;
-        const ifexist = cart.find((ele) => product.documentId === ele.documentId);
-        if (ifexist) {
-          ifexist.quantity += 1;
-          get().successtostify("Item already in cart. Quantity increased by 1");
-        } else {
-          cart.push({ ...product, quantity: 1 });
-          get().successtostify("Item added to cart successfully");
+        if(get().jwt_token){
+          const cart = get().cart;
+          const ifexist = cart.find((ele) => product.documentId === ele.documentId);
+          if (ifexist) {
+            ifexist.quantity += 1;
+            get().successtostify("Item already in cart. Quantity increased by 1");
+          } else {
+            cart.push({ ...product, quantity: 1 });
+            get().successtostify("Item added to cart successfully");
+          }
+          set({ cart });
+        }else{
+          get().errortostify("you must login first")
         }
-        set({ cart });
       },
 
       increasequantity: (id, qty) => {
@@ -96,17 +101,21 @@ export const useStore = create(persist(
       
       wishlist: [],
       addtowishlist: (product) => {
-        const wishlist = get().wishlist;
-        const ifexist = wishlist.find(
-          (ele) => product.documentId === ele.documentId
-        );
-        if (ifexist) {
-          get().successtostify("Item already in wishlist");
-        } else {
-          wishlist.push(product);
-          get().successtostify("Item added to wishlist successfully");
+        if(get().jwt_token){
+          const wishlist = get().wishlist;
+          const ifexist = wishlist.find(
+            (ele) => product.documentId === ele.documentId
+          );
+          if (ifexist) {
+            get().successtostify("Item already in wishlist");
+          } else {
+            wishlist.push(product);
+            get().successtostify("Item added to wishlist successfully");
+          }
+          set({ wishlist });
+        }else{
+          get().errortostify("you must login first")
         }
-        set({ wishlist });
       },
 
       removefromwishlist: (id) => {
@@ -118,17 +127,21 @@ export const useStore = create(persist(
 
       comparelist: [],
       addtocomparelist: (product) => {
-        const comparelist = get().comparelist;
-        const ifexist = comparelist.find(
-          (ele) => product.documentId === ele.documentId
-        );
-        if (ifexist) {
-          get().successtostify("Item already in compare list");
-        } else {
-          comparelist.push(product);
-          get().successtostify("Item added to compare list successfully");
+        if(get().jwt_token){
+          const comparelist = get().comparelist;
+          const ifexist = comparelist.find(
+            (ele) => product.documentId === ele.documentId
+          );
+          if (ifexist) {
+            get().successtostify("Item already in compare list");
+          } else {
+            comparelist.push(product);
+            get().successtostify("Item added to compare list successfully");
+          }
+          set({ comparelist });
+        }else{
+          get().errortostify("you must login first")
         }
-        set({ comparelist });
       },
 
       removefromcomparelist: (id) => {
@@ -146,9 +159,6 @@ export const useStore = create(persist(
         cart: state.cart,
         wishlist: state.wishlist,
         comparelist: state.comparelist,
-      }),
-      partialize: (state) => ({
-        activevalue: state.activevalue, 
-      }),
+      })
     }
   ))

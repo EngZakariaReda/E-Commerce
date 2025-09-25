@@ -1,20 +1,42 @@
 import { useFormik } from 'formik'
-import { Link } from 'react-router'
+import { Link, useNavigate } from 'react-router';
 import { loginschema } from './Loginformschema';
+import { useEffect } from 'react';
+import { useStore } from '../../Store/Store';
+import { ToastContainer } from 'react-toastify';
+import axios from 'axios';
 
 export default function Login() {
-    const onSubmit = (values , actions)=>{
-        console.log(values);
-        actions.resetForm();
+    const {jwt_token,settoken,errortostify,successtostify} = useStore();
+    const navigate = useNavigate();
+
+    useEffect(()=>{
+        if(jwt_token){
+            navigate("/register")
+        }
+    },[jwt_token])
+
+    const onSubmit = async (values , actions)=>{
+        try {
+            const res = await axios.post("http://localhost:1337/api/auth/local",values);
+            successtostify("Login successful 🎉");
+            setTimeout(() => {
+                settoken(res.data.jwt);
+            }, 1250);
+        } catch (error) {
+            errortostify("nvalid email or password");
+        }
     }
+
     const { values , errors , touched , handleBlur , handleChange , handleSubmit} = useFormik({
         initialValues:{
             identifier:"",
-            userpassword:"",
+            password:"",
         },
         validationSchema:loginschema,
         onSubmit,
     })
+
   return (
     <>
         <div className='registerparent'>
@@ -29,7 +51,7 @@ export default function Login() {
                     value={values.identifier}
                     onChange={handleChange}
                     onBlur={handleBlur}
-                    className='px-4 py-3 text-capitalize'
+                    className='px-4 py-3'
                 />
                 {
                     errors.identifier && touched.identifier &&
@@ -38,22 +60,22 @@ export default function Login() {
                 <input 
                     type="password" 
                     placeholder='password'
-                    name='userpassword'
-                    value={values.userpassword}
+                    name='password'
+                    value={values.password}
                     onChange={handleChange}
                     onBlur={handleBlur}
-                    className='px-4 py-3 text-capitalize'
+                    className='px-4 py-3'
                 />
                 {
-                    errors.userpassword && touched.userpassword &&
-                    <small className='text-danger'>{errors.userpassword}</small>
+                    errors.password && touched.password &&
+                    <small className='text-danger'>{errors.password}</small>
                 }
                 <button type="submit" className='text-capitalize p-2 mx-auto rounded-pill registerbtn'>
                     login
                 </button>
             </form>
         </div>
-        
+        <ToastContainer />
     </>
   )
 }

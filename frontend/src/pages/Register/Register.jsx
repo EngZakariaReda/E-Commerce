@@ -7,15 +7,16 @@ import { useStore } from '../../Store/Store';
 import { ToastContainer } from 'react-toastify';
 
 export default function Register() {
-    const {jwt_token,settoken,removetoken} = useStore();
+    const {jwt_token,settoken,removetoken,successtostify,errortostify} = useStore();
 
     const onSubmit = async (values , actions)=>{
         try {
             const res = await axios.post("http://localhost:1337/api/auth/local/register",values)
             settoken(res.data.jwt)
+            successtostify("Your account has been created successfully");
             actions.resetForm();
         } catch (error) {
-            console.log(error.response.data);
+            errortostify(error.response.data.error.message);
         }
     }
 
@@ -28,6 +29,7 @@ export default function Register() {
         validationSchema:Registerformschema,
         onSubmit,
     })
+    
   return (
     <>  
 
@@ -83,7 +85,10 @@ export default function Register() {
                     </form>
                 </div>
             :
-            <button onClick={removetoken}>remove token </button>
+            <button onClick={()=>{
+                removetoken();
+                console.log(jwt_token);
+            }}>remove token </button>
         }
         <ToastContainer />
     </>
