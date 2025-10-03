@@ -21,6 +21,7 @@ import Search from "../../pages/Search/Search";
 import Cart from "../../pages/Cart/Cart";
 import Register from "../../pages/Register/Register";
 import Login from "../../pages/Login/Login";
+import Order from "../../pages/Order/Order";
 
 export default function Myroutes() {
   return (
@@ -52,8 +53,9 @@ export default function Myroutes() {
                         <Route path="/search" element={<Search />} />
                         <Route path="/favourite" element={<Favourite />} />
                         <Route path="/compare" element={<Compare />} />
-                        <Route path="/wishlist" element={<Cart />} />
+                        <Route path="/cart" element={<Cart />} />
                         <Route path="/register" element={<Register />} />
+                        <Route path="/orders" element={<Order />} />
                         <Route path="/login" element={<Login />} />
                         <Route path="/*" element={<Mistake />} />
                     </Route>

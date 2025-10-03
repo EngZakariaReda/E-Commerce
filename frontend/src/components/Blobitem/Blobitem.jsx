@@ -1,10 +1,17 @@
 import { Link } from 'react-router'
 import './Blobitem.css'
-// documentId
+import { motion } from 'framer-motion'
+
 export default function Blobitem({ele}) {
   return (
     <>
-        <div className="col-lg-4 col-md-6 col-12 mx-auto" >
+        <motion.div 
+          className="col-lg-4 col-md-6 col-12 mx-auto" 
+          initial={{ y: 150, opacity: 0 }}
+          whileInView={{ y: 0, opacity: 1 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.8, ease: 'easeOut' }}
+        >
             <div className="d-flex flex-column gap-3 w-100 p-3 blogitem" >
                 <div className="blogimgparent">
                   <Link to={`/blog/${ele.documentId}`}>
@@ -23,7 +30,7 @@ export default function Blobitem({ele}) {
                 </h3>
                 <p className="fs-6">{ele.blog_description}</p>
             </div>
-        </div>
+        </motion.div>
     </>
   )
 }

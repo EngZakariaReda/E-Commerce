@@ -1,10 +1,18 @@
-import { Link } from 'react-router'
+import { Link, useNavigate } from 'react-router'
 import Heroimg from '../../components/Heroimg/Heroimg'
 import { useStore } from '../../Store/Store'
 import "./Favourite.css"
 import { ToastContainer } from 'react-toastify'
+import { useEffect } from 'react'
 export default function Favourite() {
-  const {domain , wishlist , removefromwishlist} = useStore()
+  const {jwt_token , domain , wishlist , removefromwishlist} = useStore();
+  const navigate = useNavigate();
+  
+  useEffect(()=>{
+      if(!jwt_token){
+          navigate("/register")
+      }
+  },[jwt_token])
   return (
     <>
       <Heroimg text="Wishlist" page="Wishlist" icon="'>'"/>

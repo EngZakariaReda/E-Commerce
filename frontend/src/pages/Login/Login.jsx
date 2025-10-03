@@ -19,6 +19,7 @@ export default function Login() {
     const onSubmit = async (values , actions)=>{
         try {
             const res = await axios.post("http://localhost:1337/api/auth/local",values);
+            localStorage.setItem("userdata",JSON.stringify(res.data.user))
             successtostify("Login successful 🎉");
             setTimeout(() => {
                 settoken(res.data.jwt);
@@ -75,7 +76,7 @@ export default function Login() {
                 </button>
             </form>
         </div>
-        <ToastContainer />
+        <ToastContainer style={{ top: '15vh' , right:'0' }} />
     </>
   )
 }

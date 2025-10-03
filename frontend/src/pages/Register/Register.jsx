@@ -1,18 +1,21 @@
+import Userinformation from '../../components/Userinformation/Userinformation';
 import { Registerformschema } from './Registerformschema';
 import { Link } from 'react-router';
 import { useFormik } from 'formik';
 import axios from 'axios';
-import './Register.css'
 import { useStore } from '../../Store/Store';
 import { ToastContainer } from 'react-toastify';
+import './Register.css'
 
 export default function Register() {
     const {jwt_token,settoken,removetoken,successtostify,errortostify} = useStore();
-
+    const userdata = JSON.parse(localStorage.getItem("userdata")) || {}
     const onSubmit = async (values , actions)=>{
         try {
             const res = await axios.post("http://localhost:1337/api/auth/local/register",values)
             settoken(res.data.jwt)
+            localStorage.setItem("userdata",JSON.stringify(res.data.user))
+            console.log(res.data.user)
             successtostify("Your account has been created successfully");
             actions.resetForm();
         } catch (error) {
@@ -85,12 +88,13 @@ export default function Register() {
                     </form>
                 </div>
             :
-            <button onClick={()=>{
-                removetoken();
-                console.log(jwt_token);
-            }}>remove token </button>
+            <Userinformation
+              username={userdata.username} 
+              email={userdata.email} 
+              createdAt={userdata.createdAt} 
+            />
         }
-        <ToastContainer />
+        <ToastContainer style={{ top: '15vh' , right:'0' }} />
     </>
   )
 }

@@ -14,6 +14,7 @@ export const useStore = create(persist(
       removetoken : () =>{ 
         Cookies.remove("jwt_token",{ path: "/", secure: true })
         set({jwt_token:null})
+        localStorage.removeItem("userdata")
       },
 
       activevalue: JSON.parse(sessionStorage.getItem("activepage")) || 0,
@@ -91,8 +92,8 @@ export const useStore = create(persist(
         get().successtostify("Item removed from cart");
       },
 
-      gettotalprice: () => {
-        return get().cart.reduce(
+      gettotalprice: (arr) => {
+        return arr.reduce(
           (acc, curr) => acc + curr.product_price * curr.quantity,
           0
         );
@@ -152,6 +153,25 @@ export const useStore = create(persist(
         }));
         get().successtostify("Item removed from compare list");
       },
+
+      orderslist: [],
+      makeorder:()=>{
+        let orders = get().orderslist;
+        let cart = get().cart;
+        orders.push(cart);
+        cart = [];
+        set({orders})
+        set({cart})
+        console.log(orders);
+      },
+      
+      deleteorder:(index)=>{
+        let orders = get().orderslist;
+        orders.splice(index , 1);
+        set({orders})
+        console.log(orders);
+      },
+
     }),
     {
       name: "store-data", 
@@ -159,6 +179,7 @@ export const useStore = create(persist(
         cart: state.cart,
         wishlist: state.wishlist,
         comparelist: state.comparelist,
+        orderslist: state.orderslist,
       })
     }
   ))

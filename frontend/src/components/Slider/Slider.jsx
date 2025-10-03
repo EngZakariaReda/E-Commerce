@@ -8,7 +8,7 @@ import { Link } from 'react-router';
 export default function Slider() {
   const images = [
   {
-    id: 1,
+    id: 1111,
     link:"/collections/homedecoration",
     nameclass: "slid_1",
     headtext: "Enjoy style And Comfort",
@@ -17,7 +17,7 @@ export default function Slider() {
       "Consectetur a erat nam at. Facilisis magna etiam tempor orci. Sem et tortor consequat id. Fermentum egestas tellus. Nunc eu hendrerit turpis. Fusce non lectus sem. In pellentesque nunc non Donec pretium gravida neque et placerat",
   },
   {
-    id: 2,
+    id: 2222,
     link:"collections/indecoration",
     nameclass: "slid_2",
     headtext: "Browse living room pieces",
@@ -26,7 +26,7 @@ export default function Slider() {
       "Consectetur a erat nam at. Facilisis magna etiam tempor orci. Sem et tortor consequat id. Fermentum egestas tellus. Nunc eu hendrerit turpis. Fusce non lectus sem. In pellentesque nunc non Donec pretium gravida neque et placerat",
   },
   {
-    id: 3,
+    id: 3333,
     link:"/collections/officedecoration",
     nameclass: "slid_3",
     headtext: "The Art of Beautiful Living",
@@ -53,7 +53,7 @@ export default function Slider() {
             <h3>{item.headtext}</h3>
             <p className="m-0 w-50 text-center">{item.headpara}</p>
             <button className="sliderbtn py-2 px-3 rounded-pill border-0">
-              <Link to={item.link}>Shop Now</Link>
+              <Link to={item.link} >Shop Now</Link>
             </button>
           </SwiperSlide>
         ))}

@@ -2,11 +2,19 @@ import Heroimg from "../../components/Heroimg/Heroimg";
 import { ToastContainer } from "react-toastify";
 import { useStore } from "../../Store/Store";
 import { MdDelete } from "react-icons/md";
-import { Link } from "react-router";
+import { Link, useNavigate } from "react-router";
 import "./Compare.css"
+import { useEffect } from "react";
 
 export default function Compare() {
-  const {domain , comparelist , removefromcomparelist} = useStore()
+  const {jwt_token , domain , comparelist , removefromcomparelist} = useStore();
+  const navigate = useNavigate();
+  
+  useEffect(()=>{
+      if(!jwt_token){
+          navigate("/register")
+      }
+  },[jwt_token])
   return (
     <>
     {

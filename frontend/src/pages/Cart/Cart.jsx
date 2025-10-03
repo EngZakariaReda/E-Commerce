@@ -2,12 +2,20 @@ import Heroimg from "../../components/Heroimg/Heroimg"
 import { ToastContainer } from "react-toastify";
 import { useStore } from "../../Store/Store"
 import { MdDelete } from "react-icons/md";
-import { Link } from "react-router";
+import { Link, useNavigate } from "react-router";
+import { useEffect } from "react";
 import "./Cart.css"
-import { div } from "framer-motion/client";
 
 export default function Cart() {
-  const {domain , cart , removefromcart , gettotalprice} = useStore()
+  const {jwt_token, domain , cart , removefromcart , gettotalprice , makeorder} = useStore();
+  const navigate = useNavigate();
+
+    useEffect(()=>{
+        if(!jwt_token){
+          navigate("/register")
+        }
+    },[jwt_token])
+
   return (
     <>
       <Heroimg text="Cart" page="Cart" icon="'>'"/>
@@ -56,7 +64,11 @@ export default function Cart() {
             }
             <div className="p-5 d-flex justify-content-between align-items-center gettotal">
               <p>total price</p>
-              <p className="price">EGP. <span>{gettotalprice()}</span></p>
+              <p className="price">EGP. <span>{gettotalprice(cart)}</span></p>
+            </div>
+
+            <div className="d-flex justify-content-center align-items-center py-5">
+              <button className="text-capitalize py-2 px-3 orderbtn" onClick={makeorder}>make an order</button>
             </div>
           </div>
           

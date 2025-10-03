@@ -1,10 +1,11 @@
-import './About.css'
+import { motion } from "framer-motion";
 import Heroimg from '../../components/Heroimg/Heroimg'
 import Teamcard from '../../components/Teamcard/Teamcard'
-import { useEffect, useState } from 'react'
 import Imgpara from '../../components/Imgpara/Imgpara'
 import Textimgslider from '../../components/Textimgslider/Textimgslider'
 import Havorcard from '../../components/Havorcard/Havorcard'
+import CountUp from 'react-countup'
+import './About.css'
 
 export default function About() {
   const team=[
@@ -34,31 +35,83 @@ export default function About() {
     },
   ]
   
-  const [count,setcount]=useState(0);
-
   return (
     <>
       <Heroimg text="about" page="about" icon="'>'"/>
       <Imgpara />
+
       <div className="counter">
-        <div className="row w-100">
+        <motion.div
+          className="row m-0"
+          initial={{ y: -150, opacity: 0 }}
+          whileInView={{ y: 0, opacity: 1 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.6 }}
+        >
           <div className="col-12 col-lg-3 col-md-6 counteritem">
-            <h2>{count}k</h2>
+            <h2>
+              <CountUp
+                start={0}
+                end={10}
+                duration={3}
+                enableScrollSpy
+                scrollSpyOnce
+              >
+                {({ countUpRef }) => <span ref={countUpRef} />}
+              </CountUp>
+              k
+            </h2>
             <p>Products Sold</p>
           </div>
+
           <div className="col-12 col-lg-3 col-md-6 counteritem">
-            <h2>{0}k</h2>
+            <h2>
+              <CountUp
+                start={0}
+                end={35}
+                duration={3}
+                enableScrollSpy
+                scrollSpyOnce
+              >
+                {({ countUpRef }) => <span ref={countUpRef} />}
+              </CountUp>
+              k
+            </h2>
             <p>Years Service</p>
           </div>
+
           <div className="col-12 col-lg-3 col-md-6 counteritem">
-            <h2>{0}</h2>
+            <h2>
+              <CountUp
+                start={0}
+                end={450}
+                duration={3}
+                enableScrollSpy
+                scrollSpyOnce
+              >
+                {({ countUpRef }) => <span ref={countUpRef} />}
+              </CountUp>
+              k
+            </h2>
             <p>Outlets Worldwide</p>
           </div>
+
           <div className="col-12 col-lg-3 col-md-6 counteritem">
-            <h2>{0}k</h2>
+            <h2>
+              <CountUp
+                start={0}
+                end={1000}
+                duration={3}
+                enableScrollSpy
+                scrollSpyOnce
+              >
+                {({ countUpRef }) => <span ref={countUpRef} />}
+              </CountUp>
+              +
+            </h2>
             <p>Satisfied Customers</p>
           </div>
-        </div>
+        </motion.div>
       </div>
 
       <div className='bestteam text-center text-capitalize'>
@@ -87,3 +140,5 @@ export default function About() {
     </>
   )
 }
+
+/**    enableScrollSpy scrollSpyOnce  */

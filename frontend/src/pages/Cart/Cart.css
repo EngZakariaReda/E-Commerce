@@ -18,6 +18,17 @@
 .gettotal .price span{
    color: var(--nav-hover);
 }
+.orderbtn{
+   width: 250px;
+   background-color:var(--nav-hover) ;
+   color: white;
+   border-radius: 25px;
+   font-size: 25px;
+}
+.orderbtn:hover{
+   background-color:white ;
+   color: var(--nav-hover);
+}
 @media (max-width:426px){
    .cart{
       height: 200px; 

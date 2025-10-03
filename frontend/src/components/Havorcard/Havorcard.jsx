@@ -1,4 +1,6 @@
 import './Havorcard.css'
+import { motion } from 'framer-motion'
+
 export default function Havorcard() {
     const items=[
         {
@@ -38,10 +40,17 @@ export default function Havorcard() {
        <div className="row m-0 g-3">
             {
                 items.map((el)=>{
-                   return <div key={el.id}  className="col-lg-2 col-md-4 col-12 cardhover" 
-                         style={{backgroundImage:`${el.backpic}`,}}>
+                   return <motion.div 
+                            key={el.id}  
+                            className="col-lg-2 col-md-4 col-12 cardhover" 
+                            initial={{ y: 150, opacity: 0 }}
+                            whileInView={{ y: 0, opacity: 1 }}
+                            viewport={{ once: true, amount: 0.3 }}
+                            transition={{ duration: 0.8, ease: 'easeOut' }}
+                            style={{backgroundImage:`${el.backpic}`,}}
+                          >
                         <img src={el.onpic} loading='lazy' />
-                    </div>
+                    </motion.div>
                 })
             }
        </div> 

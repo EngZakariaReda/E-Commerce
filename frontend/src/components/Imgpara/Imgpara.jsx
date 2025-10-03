@@ -1,12 +1,20 @@
-import './Imgpara.css'
 import { FiCornerDownRight } from "react-icons/fi";
+import { motion } from "framer-motion";
+import './Imgpara.css'
+
 export default function Imgpara() {
   return (
     <>
         <div className="Imgpara">
             <div className="row g-5">
                 <div className="col-lg-6 col-12">
-                    <div className='d-flex flex-column gap-3'>
+                    <motion.div 
+                        className='d-flex flex-column gap-3'
+                        initial={{ x: -150, opacity: 0 }}
+                        whileInView={{ x: 0, opacity: 1 }}
+                        viewport={{ once: true, amount: 0.2 }}
+                        transition={{ duration: 0.8, ease: "easeOut" }}
+                    >
                         <p className='headp'>HOME DECOR HUB</p>
                         <h4>Exceptional Furniture's For Indoor & Outdoor</h4>
                         <p className='text-white-50'>
@@ -15,17 +23,35 @@ export default function Imgpara() {
                             ac dui pretium blandit. Class aptent taciti sociosqu ad 
                             litora torquent per conubia nostra, per inceptos himenaeos.
                         </p>
-                        <div className='mt-4'>
+                        <motion.div 
+                            className='mt-4'
+                            initial={{ y: 150, opacity: 0 }}
+                            whileInView={{ y: 0, opacity: 1 }}
+                            viewport={{ once: true, amount: 0.2 }}
+                            transition={{ duration: 0.8, ease: "easeOut" }}
+                        >
                             <img src="images/Group_131808.webp" alt="#"  className='w-100'/>
-                        </div>
-                    </div>
+                        </motion.div>
+                    </motion.div>
                 </div>
 
                 <div className="col-lg-6 col-12">
-                    <div className='d-flex flex-column gap-3'>
-                        <div>
+                    <motion.div 
+                        className='d-flex flex-column gap-3'
+                        initial={{ x: 150, opacity: 0 }}
+                        whileInView={{ x: 0, opacity: 1 }}
+                        viewport={{ once: true, amount: 0.2 }}
+                        transition={{ duration: 0.8, ease: "easeOut" }}
+                    >
+                        <motion.div
+                            className='d-flex flex-column gap-3'
+                            initial={{ y: -150, opacity: 0 }}
+                            whileInView={{ y: 0, opacity: 1 }}
+                            viewport={{ once: true, amount: 0.2 }}
+                            transition={{ duration: 0.8, ease: "easeOut" }}
+                        >
                             <img src="images/Rectangle_38880.webp" alt="#"  className='w-100'/>
-                        </div>
+                        </motion.div>
                         <h4>Discover Endless Designs</h4>
                         <p className='text-white-50'>
                             Integer dapibus ac dui pretium blandit. Class aptent taciti sociosqu 
@@ -37,7 +63,7 @@ export default function Imgpara() {
                             <p><FiCornerDownRight className='headp me-2'/>Aenean vehicula sodales arcu non mattis.</p>
                             <p><FiCornerDownRight className='headp me-2'/>Integer dapibus ac dui pretium blanss aptent.</p>
                         </div>
-                    </div>
+                    </motion.div>
                     
                 </div>
             </div>

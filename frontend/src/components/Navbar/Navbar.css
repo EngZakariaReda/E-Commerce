@@ -14,13 +14,6 @@
 .query{
     display: none;
 }
-.dropdownmenu{
-    background-color: black;
-}
-.dropdownsingle:hover{
-    color: var(--nav-hover) !important;
-    background-color: transparent;
-}
 .active{
     color: var(--nav-hover) !important ;
 }

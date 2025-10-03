@@ -1,18 +1,9 @@
 import React, { useState } from 'react'
 
 export default function Filter({products , setproducts}) {
-    const [filters, setFilters] = useState({
-        atoz: false,
-        ztoa: false,
-        low: false,
-        high: false,
-    })
-
     const newarr = [...products];
     const handlechange = (e)=>{
         let comparefilter = e.target.name;
-        console.log(comparefilter);
-        
         const filterarr = 
             comparefilter === "atoz" ?
                 newarr.sort((a, b) => a.product_name.localeCompare(b.product_name)) :
@@ -30,7 +21,6 @@ export default function Filter({products , setproducts}) {
                 <input 
                     type="checkbox" 
                     name="atoz" 
-                    checked={filters.atoz}
                     onChange={handlechange}
                 />
                 <label>Alphabetically, A-Z </label>
@@ -39,7 +29,6 @@ export default function Filter({products , setproducts}) {
                 <input
                     type="checkbox"
                     name="ztoa"
-                    checked={filters.ztoa}
                     onChange={handlechange}
                 />
                 <label>Alphabetically, Z-A</label>
@@ -48,7 +37,6 @@ export default function Filter({products , setproducts}) {
                 <input
                     type="checkbox"
                     name="low"
-                    checked={filters.low}
                     onChange={handlechange}
                 />
                 <label>Price, low to high</label>
@@ -57,7 +45,6 @@ export default function Filter({products , setproducts}) {
                 <input
                     type="checkbox"
                     name="high"
-                    checked={filters.high}
                     onChange={handlechange}
                 />
                 <label>Price, high to low</label>

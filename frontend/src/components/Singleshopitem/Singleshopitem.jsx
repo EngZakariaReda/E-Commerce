@@ -6,13 +6,21 @@ import "./Singleshopitem.css"
 import { Tooltip } from 'react-tooltip';
 import { Link } from 'react-router';
 import { useStore } from '../../Store/Store';
+import { motion } from 'framer-motion'
 
 export default function Singleshopitem({id,name,category,price,images,item}) {
     const {domain, addtocart , addtowishlist , addtocomparelist} = useStore();
     const [img , setimage] = useState(`${domain}${images[0].url}`)
   return (
     <>
-        <div className='col-lg-4 col-md-6 col-12 mx-auto text-center shopproduct'>
+        <motion.div 
+            className='col-lg-4 col-md-6 col-12 mx-auto text-center shopproduct'
+            key={window.location.pathname}
+            initial={{ y: 150, opacity: 0 }}
+            whileInView={{ y: 0, opacity: 1 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.8, ease: 'easeOut' }}
+        >
             <div className='w-100' style={{height:"300px"}}
             onMouseEnter={()=>setimage(`${domain}${images[1].url}`)}
             onMouseLeave={()=>setimage(`${domain}${images[0].url}`)}
@@ -52,7 +60,7 @@ export default function Singleshopitem({id,name,category,price,images,item}) {
                 </button>
                 <Tooltip id={`cart-${id}`} place='left' classNameArrow="custom-arrow-left" className="custom-tooltip-left" />
             </div>
-        </div>
+        </motion.div>
     </>
   )
 }
