@@ -51,11 +51,11 @@ export default function Myroutes() {
                         <Route path="/faq" element={<FAQ />} />
                         <Route path="/contact" element={<Contact />} />
                         <Route path="/search" element={<Search />} />
-                        <Route path="/favourite" element={<Favourite />} />
-                        <Route path="/compare" element={<Compare />} />
                         <Route path="/cart" element={<Cart />} />
-                        <Route path="/register" element={<Register />} />
+                        <Route path="/compare" element={<Compare />} />
+                        <Route path="/favourite" element={<Favourite />} />
                         <Route path="/orders" element={<Order />} />
+                        <Route path="/register" element={<Register />} />
                         <Route path="/login" element={<Login />} />
                         <Route path="/*" element={<Mistake />} />
                     </Route>

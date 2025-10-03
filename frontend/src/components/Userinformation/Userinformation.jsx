@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 
 
 export default function Userinformation({username,email,createdAt}) {
-    const {removetoken} = useStore();
+    const {removetoken , changecolor } = useStore();
     const formattedDate = new Date(createdAt).toLocaleDateString("en-GB", {
         day: "2-digit",
         month: "long",
@@ -33,28 +33,27 @@ export default function Userinformation({username,email,createdAt}) {
 
           <div className="d-flex justify-content-center">
             <button className="text-capitalize p-2 rounded-pill">
-                <NavLink to={"/cart"}> cart </NavLink>
+                <NavLink to={"/cart"} onClick={changecolor(8)}> cart </NavLink>
             </button>
             <button className="text-capitalize p-2 rounded-pill">
-                <NavLink to={"/favourite"}> wishlist </NavLink>
+                <NavLink to={"/favourite"} onClick={changecolor(9)}> wishlist </NavLink>
             </button>
             <button className="text-capitalize p-2 rounded-pill">
-                <NavLink to={"/compare"}> compare </NavLink>
+                <NavLink to={"/compare"} onClick={changecolor(10)}> compare </NavLink>
             </button>
             <button className="text-capitalize p-2 rounded-pill">
-                <NavLink to={"/orders"}> orders </NavLink>
+                <NavLink to={"/orders"} onClick={changecolor(11)}> orders </NavLink>
             </button>
           </div>
 
           <button 
-            className="btn btn-danger btn-sm mt-2"
+            className="btn  btn-danger btn-sm mt-2"
             onClick={removetoken}
           >
-            Remove Token
+            Log Out
           </button>
         </div>
       </motion.div>
     </div>
   );
 };
- /*  <button onClick={()=>{removetoken()}}>remove token </button>  */

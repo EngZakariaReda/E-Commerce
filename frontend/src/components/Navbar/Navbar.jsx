@@ -5,7 +5,7 @@ import { MdBorderColor } from "react-icons/md";
 import { BsPersonCircle  } from "react-icons/bs";
 import { GrFavorite } from "react-icons/gr";
 import { TfiReload } from "react-icons/tfi";
-import { Link, NavLink } from "react-router";
+import { Link } from "react-router";
 import { useStore } from "../../Store/Store";
 import { motion } from 'framer-motion'
 import "./Navbar.css"
@@ -76,7 +76,8 @@ export default function Navbar({click}) {
 
               <button className='bg-transparent border-0 text-white'>
                 <Link to={"/search"}><IoSearchSharp  className={activevalue === 7 ? "active" : ""}
-                  onClick={()=>{changecolor(7)}} /></Link>
+                  onClick={()=>{changecolor(7)}} />
+                </Link>
               </button>
 
               <button className='bg-transparent border-0 text-white parentlength'>
@@ -104,16 +105,16 @@ export default function Navbar({click}) {
               </button>
 
               <button className='bg-transparent border-0 text-white parentlength'>
-                <Link to={"/orders"}><MdBorderColor className={activevalue === 12 ? "active" : ""}
-                onClick={()=>{changecolor(12)}} /></Link>
+                <Link to={"/orders"}><MdBorderColor className={activevalue === 11 ? "active" : ""}
+                onClick={()=>{changecolor(11)}} /></Link>
                 <div className={ jwt_token ? orderslist.length === 0 ? "d-none" : "lenghtnumber" :"d-none"}>
                   {orderslist.length}
                 </div>
               </button>
 
               <button className='bg-transparent border-0 text-white'>
-                <Link to={"/register"}><BsPersonCircle  className={activevalue === 11 ? "active" : ""}
-                onClick={()=>{changecolor(11)}} /></Link>
+                <Link to={"/register"}><BsPersonCircle  className={activevalue === 12 ? "active" : ""}
+                onClick={()=>{changecolor(12)}} /></Link>
               </button>
           </div>
         </header>
